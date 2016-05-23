@@ -7,24 +7,28 @@
 //
 
 import UIKit
+import SideMenu
 
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var logoBike: UIImageView!
-    
-    @IBOutlet weak var barHamburger: UIImageView!
-    
+    @IBOutlet weak var buttonBar: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set side bar action
-        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
-        barHamburger.userInteractionEnabled = true
-        barHamburger.addGestureRecognizer(tapGestureRecognizer)
+        // change buttonBar color
+        let origImage = UIImage(named: "icon-list");
+        let tintedImage = origImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        buttonBar.setImage(tintedImage, forState: .Normal)
+        buttonBar.tintColor = UIColor.whiteColor()
         
-        //
-
+        // change logoBike color
+        logoBike.image = logoBike.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        logoBike.tintColor = UIColor.whiteColor()
+        
+        //UIBarButtonItem
+        //NSAttributedString
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,9 +36,6 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func imageTapped(img: AnyObject) {
-        
-    }
 
 
 }
