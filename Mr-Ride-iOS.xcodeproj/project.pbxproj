@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		33AAF06A1CF2A4B600F14E31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AAF0691CF2A4B600F14E31 /* AppDelegate.swift */; };
-		33AAF06C1CF2A4B600F14E31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AAF06B1CF2A4B600F14E31 /* ViewController.swift */; };
+		33AAF06C1CF2A4B600F14E31 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AAF06B1CF2A4B600F14E31 /* HomeViewController.swift */; };
 		33AAF06F1CF2A4B600F14E31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33AAF06D1CF2A4B600F14E31 /* Main.storyboard */; };
 		33AAF0721CF2A4B600F14E31 /* Mr_Ride_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33AAF0701CF2A4B600F14E31 /* Mr_Ride_iOS.xcdatamodeld */; };
 		33AAF0741CF2A4B600F14E31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33AAF0731CF2A4B600F14E31 /* Assets.xcassets */; };
 		33AAF0771CF2A4B600F14E31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33AAF0751CF2A4B600F14E31 /* LaunchScreen.storyboard */; };
+		33ADF1141CF2B3F900BA6BAF /* MRColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADF1121CF2B3F900BA6BAF /* MRColor.swift */; };
+		33ADF1151CF2B3F900BA6BAF /* MRFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADF1131CF2B3F900BA6BAF /* MRFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		33AAF0661CF2A4B500F14E31 /* Mr-Ride-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mr-Ride-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33AAF0691CF2A4B600F14E31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		33AAF06B1CF2A4B600F14E31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		33AAF06B1CF2A4B600F14E31 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		33AAF06E1CF2A4B600F14E31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		33AAF0711CF2A4B600F14E31 /* Mr_Ride_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mr_Ride_iOS.xcdatamodel; sourceTree = "<group>"; };
 		33AAF0731CF2A4B600F14E31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33AAF0761CF2A4B600F14E31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33AAF0781CF2A4B600F14E31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33ADF1121CF2B3F900BA6BAF /* MRColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRColor.swift; sourceTree = "<group>"; };
+		33ADF1131CF2B3F900BA6BAF /* MRFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRFont.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +60,9 @@
 		33AAF0681CF2A4B500F14E31 /* Mr-Ride-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				33ADF1111CF2B3DA00BA6BAF /* Resources */,
 				33AAF0691CF2A4B600F14E31 /* AppDelegate.swift */,
-				33AAF06B1CF2A4B600F14E31 /* ViewController.swift */,
+				33AAF06B1CF2A4B600F14E31 /* HomeViewController.swift */,
 				33AAF06D1CF2A4B600F14E31 /* Main.storyboard */,
 				33AAF0731CF2A4B600F14E31 /* Assets.xcassets */,
 				33AAF0751CF2A4B600F14E31 /* LaunchScreen.storyboard */,
@@ -65,6 +70,15 @@
 				33AAF0701CF2A4B600F14E31 /* Mr_Ride_iOS.xcdatamodeld */,
 			);
 			path = "Mr-Ride-iOS";
+			sourceTree = "<group>";
+		};
+		33ADF1111CF2B3DA00BA6BAF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				33ADF1121CF2B3F900BA6BAF /* MRColor.swift */,
+				33ADF1131CF2B3F900BA6BAF /* MRFont.swift */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +153,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33AAF06C1CF2A4B600F14E31 /* ViewController.swift in Sources */,
+				33AAF06C1CF2A4B600F14E31 /* HomeViewController.swift in Sources */,
+				33ADF1151CF2B3F900BA6BAF /* MRFont.swift in Sources */,
 				33AAF06A1CF2A4B600F14E31 /* AppDelegate.swift in Sources */,
+				33ADF1141CF2B3F900BA6BAF /* MRColor.swift in Sources */,
 				33AAF0721CF2A4B600F14E31 /* Mr_Ride_iOS.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +307,7 @@
 				33AAF07D1CF2A4B600F14E31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
