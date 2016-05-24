@@ -11,11 +11,21 @@ import SideMenu
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var totalDistance: UILabel!
+    @IBOutlet weak var totalDistanceCount: UILabel!
+    @IBOutlet weak var totalCounts: UILabel!
+    @IBOutlet weak var totalCountsCount: UILabel!
+    @IBOutlet weak var averageSpeed: UILabel!
+    @IBOutlet weak var averageSpeedCount: UILabel!
+    
+    @IBOutlet weak var buttonLetsRide: UIButton!
+    
     @IBOutlet weak var logoBike: UIImageView!
     @IBOutlet weak var buttonBar: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        buttonLetsRide.layer.cornerRadius = 30
         
         // change buttonBar color
         let origImage = UIImage(named: "icon-list");
@@ -33,10 +43,6 @@ class HomeViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-
 }
 
