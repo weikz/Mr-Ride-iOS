@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PDc-sk-5hE">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -54,7 +54,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ku-gA-cDa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="713.5" y="352.5"/>
+            <point key="canvasLocation" x="1525.5" y="352.5"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -126,40 +126,53 @@
                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.15000000596046448" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-bike" translatesAutoresizingMaskIntoConstraints="NO" id="7gD-nO-e88">
-                                <rect key="frame" x="164" y="55" width="48" height="50"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpR-Lo-kqg">
-                                <rect key="frame" x="20" y="69" width="39" height="22"/>
-                                <state key="normal" image="icon-list"/>
-                                <connections>
-                                    <segue destination="GpR-jv-MMN" kind="presentation" id="gqo-AB-uHP"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.38823530077934265" green="0.84313726425170898" blue="0.96470588445663452" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="PMw-eK-j0Q">
+                        <barButtonItem key="leftBarButtonItem" image="icon-menu" id="2cH-ry-ivE">
+                            <color key="tintColor" red="0.99278479814529419" green="0.99594038724899292" blue="0.99582940340042114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="GpR-jv-MMN" kind="presentation" id="kCq-HU-vJF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="averageSpeed" destination="IB2-IW-Je8" id="PHG-ga-pWN"/>
                         <outlet property="averageSpeedCount" destination="L6s-pW-EZo" id="Oic-Jn-mKj"/>
-                        <outlet property="buttonBar" destination="kpR-Lo-kqg" id="Sf7-fH-2qi"/>
                         <outlet property="buttonLetsRide" destination="9KU-hE-tkX" id="xnE-5H-gQC"/>
-                        <outlet property="logoBike" destination="7gD-nO-e88" id="Pov-yJ-ODn"/>
-                        <outlet property="totalCounts" destination="RVB-9I-VfE" id="gUk-Vl-iiL"/>
                         <outlet property="totalCountsCount" destination="b8u-oo-5qn" id="JpZ-YZ-U5s"/>
-                        <outlet property="totalDistance" destination="ek2-SZ-4wb" id="IiV-QS-LBO"/>
                         <outlet property="totalDistanceCount" destination="EHu-dC-8zk" id="xFl-GT-yd3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120.5" y="352.5"/>
+            <point key="canvasLocation" x="932.5" y="352.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vrz-Kk-0AM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PDc-sk-5hE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wYK-4s-jVA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gJD-Nm-nXE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqW-tU-Zrc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="389.5" y="352.5"/>
         </scene>
     </scenes>
     <resources>
-        <image name="icon-list" width="20" height="20"/>
-        <image name="logo-bike" width="80" height="80"/>
+        <image name="icon-menu" width="30" height="30"/>
     </resources>
 </document>
