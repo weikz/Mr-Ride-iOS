@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1516CF0D575DFEF43D6F360A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CE9D294D68EE5D440812D4 /* Pods.framework */; };
+		332278AF1CF4242400C793C7 /* NewRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332278AE1CF4242400C793C7 /* NewRecordViewController.swift */; };
+		334839411CF6CE8200C94FCB /* buttonPlayAndPause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334839401CF6CE8200C94FCB /* buttonPlayAndPause.swift */; };
 		336E303E1CF361EC006195B5 /* RobotoMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 336E30341CF361EC006195B5 /* RobotoMono-Bold.ttf */; };
 		336E303F1CF361EC006195B5 /* RobotoMono-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 336E30351CF361EC006195B5 /* RobotoMono-BoldItalic.ttf */; };
 		336E30401CF361EC006195B5 /* RobotoMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 336E30361CF361EC006195B5 /* RobotoMono-Italic.ttf */; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		22499F2388DB7E6076574D5B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		332278AE1CF4242400C793C7 /* NewRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecordViewController.swift; sourceTree = "<group>"; };
+		334839401CF6CE8200C94FCB /* buttonPlayAndPause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = buttonPlayAndPause.swift; sourceTree = "<group>"; };
 		336E30341CF361EC006195B5 /* RobotoMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Bold.ttf"; sourceTree = "<group>"; };
 		336E30351CF361EC006195B5 /* RobotoMono-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-BoldItalic.ttf"; sourceTree = "<group>"; };
 		336E30361CF361EC006195B5 /* RobotoMono-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Italic.ttf"; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 				33AAF0751CF2A4B600F14E31 /* LaunchScreen.storyboard */,
 				33AAF0781CF2A4B600F14E31 /* Info.plist */,
 				33AAF0701CF2A4B600F14E31 /* Mr_Ride_iOS.xcdatamodeld */,
+				332278AE1CF4242400C793C7 /* NewRecordViewController.swift */,
+				334839401CF6CE8200C94FCB /* buttonPlayAndPause.swift */,
 			);
 			path = "Mr-Ride-iOS";
 			sourceTree = "<group>";
@@ -276,10 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				332278AF1CF4242400C793C7 /* NewRecordViewController.swift in Sources */,
 				33AAF06C1CF2A4B600F14E31 /* HomeViewController.swift in Sources */,
 				33ADF1151CF2B3F900BA6BAF /* MRFont.swift in Sources */,
 				33AAF06A1CF2A4B600F14E31 /* AppDelegate.swift in Sources */,
 				33ADF1141CF2B3F900BA6BAF /* MRColor.swift in Sources */,
+				334839411CF6CE8200C94FCB /* buttonPlayAndPause.swift in Sources */,
 				33AAF0721CF2A4B600F14E31 /* Mr_Ride_iOS.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
