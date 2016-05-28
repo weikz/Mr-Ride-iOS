@@ -221,6 +221,9 @@
                         <color key="backgroundColor" red="0.38823530077934265" green="0.84313726425170898" blue="0.96470588445663452" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="googleMapView" destination="Agq-py-oZ5" id="4Zs-4X-XWJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8yd-cH-hFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
