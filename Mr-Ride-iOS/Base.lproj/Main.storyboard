@@ -205,10 +205,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WSh-1p-M5q">
-                                <rect key="frame" x="137" y="310" width="80" height="80"/>
+                                <rect key="frame" x="135" y="339" width="80" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiB-UL-5eR" customClass="buttonPlayAndPause" customModule="Mr_Ride_iOS" customModuleProvider="target">
                                         <rect key="frame" x="8" y="8" width="64" height="64"/>
+                                        <connections>
+                                            <action selector="playAndPauseButton:" destination="Yy5-4a-dbU" eventType="touchUpInside" id="Rv5-x1-zlc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -217,12 +220,19 @@
                                 <rect key="frame" x="20" y="432" width="335" height="215"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J36-U3-pDi">
+                                <rect key="frame" x="91" y="291" width="169" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.38823530077934265" green="0.84313726425170898" blue="0.96470588445663452" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="googleMapView" destination="Agq-py-oZ5" id="4Zs-4X-XWJ"/>
+                        <outlet property="timerLabel" destination="J36-U3-pDi" id="nfG-Zb-Dw1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8yd-cH-hFf" userLabel="First Responder" sceneMemberID="firstResponder"/>

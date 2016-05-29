@@ -12,7 +12,13 @@ import GoogleMaps
 class NewRecordViewController: UIViewController {
   
     let locationManager = CLLocationManager()
+    var paceCounter: NSTimer!
+    
     @IBOutlet weak var googleMapView: GMSMapView!
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBAction func playAndPauseButton(sender: UIButton) {
+        paceCounter = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +39,10 @@ class NewRecordViewController: UIViewController {
         layer.colors = [UIColor.blackColor().colorWithAlphaComponent(0.6).CGColor, UIColor.blackColor().colorWithAlphaComponent(0.4).CGColor]
         view.layer.insertSublayer(layer, atIndex: 0)
     }
+    
+    func runTimedCode() {
+    }
+
 
 }
 
