@@ -12,19 +12,36 @@ import GoogleMaps
 class NewRecordViewController: UIViewController {
   
     let locationManager = CLLocationManager()
-    var paceCounter: NSTimer!
+    var paceTimer: NSTimer!
+    var paceCounter = 0
     
-    @IBOutlet weak var googleMapView: GMSMapView!
+    var startLocation: CLLocation!
+    var lastLocation: CLLocation!
+    var distance = 0.0
+    
+    var pathArray: [CLLocation] = []
+
+
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var averageSpeedLabel: UILabel!
+    @IBOutlet weak var caloriesLabel: UILabel!
+    
     @IBAction func playAndPauseButton(sender: UIButton) {
-        paceCounter = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+        paceTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
     }
+
+    @IBOutlet weak var googleMapView: GMSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addGradient()
+        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+
+        timerLabel.text = String(paceCounter)
+        
         
     }
 
@@ -41,6 +58,7 @@ class NewRecordViewController: UIViewController {
     }
     
     func runTimedCode() {
+        timerLabel.text = String(paceCounter++)
     }
 
 
@@ -57,25 +75,66 @@ extension NewRecordViewController: CLLocationManagerDelegate {
             googleMapView.settings.myLocationButton = true
         }
     }
-    
+        
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        
+        // Be careful!!!!
+        // check timestamp
+        // call 500 times instead of 1000? hint: NSTimer
+        
+        // prevent from too many polylines
+        googleMapView.clear()
+       
+        
+        // set distance/average speed ( distance / time )
+        if startLocation == nil {
+            startLocation = locations.first
+        } else {
+            if let lastLocation = locations.last {
+                let distance = startLocation.distanceFromLocation(lastLocation)
+
+                distanceLabel.text = String(distance)
+                
+//                let lastDistance = lastLocation.distanceFromLocation(lastLocation)
+//                traveledDistance += lastDistance
+
+                
+                
+            }
+        }
+        
+        
+        
+        // set Calories
+        
+        
+        
         if let location = locations.first {
             
-            googleMapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            pathArray.append(location)
+            print("my array count:\(pathArray.count)")
+            print("didUpdateLocations array count:\(locations.count)")
             
+            
+            googleMapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+        
             // draw polylines
             let path = GMSMutablePath()
-            path.addCoordinate(location.coordinate)
+            
+            for paths in pathArray {
+                path.addCoordinate(paths.coordinate)
+            }
             
             let polyline = GMSPolyline(path: path)
             polyline.strokeColor = UIColor.blueColor()
             polyline.strokeWidth = 10.0
             polyline.geodesic = true
             polyline.map = googleMapView
-
         }
 
         
     }
     
 }
+
