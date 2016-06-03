@@ -18,9 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+        UINavigationBar.appearance().backgroundColor = UIColor.MRLightblueColor()
+        UINavigationBar.appearance().translucent = true
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         GMSServices.provideAPIKey(googleMapsApiKey)
+        
         
         return true
     }

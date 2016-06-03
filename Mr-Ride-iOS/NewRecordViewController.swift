@@ -8,9 +8,10 @@
 
 import UIKit
 import GoogleMaps
+import CoreData
 
 class NewRecordViewController: UIViewController {
-  
+    
     let locationManager = CLLocationManager()
     var paceTimer: NSTimer!
     var paceCounter = 0
@@ -18,10 +19,16 @@ class NewRecordViewController: UIViewController {
     var startLocation: CLLocation!
     var lastLocation: CLLocation!
     var distance = 0.0
+    var calories = 0.0
     
     var pathArray: [CLLocation] = []
-
-
+    var pathArrayForCoreData: [CLLocation] = []
+    var pathArrayFor: [Dictionary<String, AnyObject>] = []
+    
+    var averageSpeed:Double = 0.0
+    
+    let context = DataController().managedObjectContext
+    
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var averageSpeedLabel: UILabel!
@@ -30,21 +37,32 @@ class NewRecordViewController: UIViewController {
     @IBAction func playAndPauseButton(sender: UIButton) {
         paceTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
     }
-
+    
     @IBOutlet weak var googleMapView: GMSMapView!
+    
+    @IBAction func finishButton(sender: UIButton) {
+        getPathArray()
+        getAverageSpeed()
+        saveDataToCoreData()
+        performSegueWithIdentifier("toStatisticPage", sender: nil)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = UIColor.MRLightblueColor()
         addGradient()
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-
+        
         timerLabel.text = String(paceCounter)
         
         
+        
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,13 +73,14 @@ class NewRecordViewController: UIViewController {
         layer.frame = self.view.bounds
         layer.colors = [UIColor.blackColor().colorWithAlphaComponent(0.6).CGColor, UIColor.blackColor().colorWithAlphaComponent(0.4).CGColor]
         view.layer.insertSublayer(layer, atIndex: 0)
+        //clearcolor
     }
     
     func runTimedCode() {
         timerLabel.text = String(paceCounter++)
     }
-
-
+    
+    
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -75,7 +94,7 @@ extension NewRecordViewController: CLLocationManagerDelegate {
             googleMapView.settings.myLocationButton = true
         }
     }
-        
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         
@@ -85,21 +104,24 @@ extension NewRecordViewController: CLLocationManagerDelegate {
         
         // prevent from too many polylines
         googleMapView.clear()
-       
         
-        // set distance/average speed ( distance / time )
+        
+        // set distance and speed
         if startLocation == nil {
             startLocation = locations.first
         } else {
             if let lastLocation = locations.last {
-                let distance = startLocation.distanceFromLocation(lastLocation)
-
-                distanceLabel.text = String(distance)
+                distance = startLocation.distanceFromLocation(lastLocation)
                 
-//                let lastDistance = lastLocation.distanceFromLocation(lastLocation)
-//                traveledDistance += lastDistance
-
+                distanceLabel.text = String(round(100.0 * distance) / 100.0) + " m"
+                // let lastDistance = lastLocation.distanceFromLocation(lastLocation)
+                // traveledDistance += lastDistance
                 
+                averageSpeedLabel.text = String(round(100.0 * lastLocation.speed) / 100.0) + " km/h"
+                
+                calories = distance * 0.5
+                
+                caloriesLabel.text = String(round(100.0 * calories) / 100.0) + " cal"
                 
             }
         }
@@ -113,12 +135,8 @@ extension NewRecordViewController: CLLocationManagerDelegate {
         if let location = locations.first {
             
             pathArray.append(location)
-            print("my array count:\(pathArray.count)")
-            print("didUpdateLocations array count:\(locations.count)")
-            
-            
             googleMapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-        
+            
             // draw polylines
             let path = GMSMutablePath()
             
@@ -132,9 +150,52 @@ extension NewRecordViewController: CLLocationManagerDelegate {
             polyline.geodesic = true
             polyline.map = googleMapView
         }
-
+        
         
     }
     
+}
+
+// MARK: - Save in Core Data
+
+extension NewRecordViewController {
+    func getPathArray() -> NSData {
+        for location in pathArrayForCoreData {
+            let latitude = NSNumber(double: Double(location.coordinate.latitude))
+            let longitude = NSNumber(double: Double(location.coordinate.longitude))
+            let coordinate = ["latitude": latitude, "logitude": longitude]
+            pathArrayFor.append(coordinate)
+        }
+        let _polylineCoordinatePackage = NSKeyedArchiver.archivedDataWithRootObject(pathArrayFor)
+        
+        // set vs array
+        
+        return _polylineCoordinatePackage
+    }
+    
+    func getAverageSpeed() -> Double{
+        for location in pathArrayForCoreData {
+            averageSpeed += Double(location.speed)
+        }
+        averageSpeed = averageSpeed / Double(pathArrayForCoreData.count)
+        return averageSpeed
+    }
+    
+    func saveDataToCoreData() {
+        let record = NSEntityDescription.insertNewObjectForEntityForName("Record", inManagedObjectContext: context)
+        record.setValue(distance, forKey: "distance")
+        record.setValue(getAverageSpeed(), forKey: "averageSpeed")
+        record.setValue(calories, forKey: "calories")
+        record.setValue(getPathArray(), forKey: "path")
+        //record.setValue(time)
+        
+        do {
+            try context.save()
+        } catch {
+            fatalError("Failure to save context.")
+        }
+
+        
+    }
 }
 

@@ -14,8 +14,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var totalDistanceCount: UILabel!
     @IBOutlet weak var totalCountsCount: UILabel!
     @IBOutlet weak var averageSpeedCount: UILabel!
+    @IBOutlet weak var letsRideButton: UIButton!
     
-    @IBOutlet weak var buttonLetsRide: UIButton!
+    @IBAction func letsRideButton(sender: UIButton) {
+        let newRecordViewController = self.storyboard?.instantiateViewControllerWithIdentifier("NewRecordViewController") as! NewRecordViewController
+        let navigationControllerForRootView = UINavigationController(rootViewController: newRecordViewController)
+        self.presentViewController(navigationControllerForRootView, animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {
@@ -31,7 +36,7 @@ class HomeViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
         // Set Let's Ride button
-        buttonLetsRide.layer.cornerRadius = 30
+         letsRideButton.layer.cornerRadius = 30
         
         //NSAttributedString Use To Count's string interpolation
         
