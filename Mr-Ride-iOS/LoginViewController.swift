@@ -10,10 +10,18 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var loginButton: UIButton!
+    
+    @IBAction func loginButton(sender: UIButton) {
+        performSegueWithIdentifier("toHomePage", sender: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        loginButton.layer.cornerRadius = 30
+
     }
 
     override func didReceiveMemoryWarning() {

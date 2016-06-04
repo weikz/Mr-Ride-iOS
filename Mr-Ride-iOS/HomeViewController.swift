@@ -36,7 +36,7 @@ class HomeViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
         // Set Let's Ride button
-         letsRideButton.layer.cornerRadius = 30
+        letsRideButton.layer.cornerRadius = 30
         
         //NSAttributedString Use To Count's string interpolation
         

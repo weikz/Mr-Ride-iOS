@@ -23,6 +23,7 @@ class StatisticViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
+        addGradient()
         
     }
 
@@ -43,6 +44,14 @@ extension StatisticViewController {
         } catch {
             fatalError("error appear when fetching")
         }
+    }
+    
+    func addGradient() {
+        let layer = CAGradientLayer()
+        layer.frame = self.view.bounds
+        layer.colors = [UIColor.blackColor().colorWithAlphaComponent(0.6).CGColor, UIColor.blackColor().colorWithAlphaComponent(0.4).CGColor]
+        view.layer.insertSublayer(layer, atIndex: 0)
+        //clearcolor
     }
 
 }
