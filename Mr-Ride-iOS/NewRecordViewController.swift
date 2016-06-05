@@ -13,13 +13,18 @@ import CoreData
 class NewRecordViewController: UIViewController {
     
     let locationManager = CLLocationManager()
-    var paceTimer: NSTimer!
-    var paceCounter = 0
     
     var startLocation: CLLocation!
     var lastLocation: CLLocation!
     var distance = 0.0
     var calories = 0.0
+    
+    var durationString = ""
+    var timer = NSTimer()
+    var minutes = 0
+    var seconds = 0
+    var fractions = 0
+    var startTracking = false
     
     var pathArray: [CLLocation] = []
     var pathArrayForCoreData: [CLLocation] = []
@@ -35,7 +40,13 @@ class NewRecordViewController: UIViewController {
     @IBOutlet weak var caloriesLabel: UILabel!
     
     @IBAction func playAndPauseButton(sender: UIButton) {
-        paceTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+        if startTracking == false {
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(NewRecordViewController.playAndPauseSelector), userInfo: nil, repeats: true)
+            startTracking = true
+        } else {
+            timer.invalidate()
+            
+        }
     }
     
     @IBOutlet weak var googleMapView: GMSMapView!
@@ -69,10 +80,8 @@ extension NewRecordViewController {
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        
-        timerLabel.text = String(paceCounter)
-        
     }
+    
 }
 
 // MARK: - Setup
@@ -86,10 +95,29 @@ extension NewRecordViewController {
         //clearcolor
     }
     
-    func runTimedCode() {
-        timerLabel.text = String(paceCounter++)
-    }
+}
 
+// MARK: - Setup Timer
+
+extension NewRecordViewController {
+    func playAndPauseSelector() {
+        fractions += 1
+        if fractions == 100 {
+            seconds += 1
+            fractions = 0
+        }
+        
+        if seconds == 60 {
+            minutes += 1
+            seconds = 0
+        }
+        
+        let fractionsString = fractions > 9 ? "\(fractions)" : "0\(fractions)"
+        let secondString = seconds > 9 ? "\(seconds)" : "0\(seconds)"
+        let minutesString = minutes > 9 ? "\(minutes)" : "0\(minutes)"
+        durationString = "\(minutesString):\(secondString).\(fractionsString)"
+        timerLabel.text = durationString
+    }
 }
 
 
