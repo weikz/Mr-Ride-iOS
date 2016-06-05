@@ -48,6 +48,20 @@ class NewRecordViewController: UIViewController {
     }
     
     
+
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    
+    
+}
+
+// MARK: - View Life Cycle
+
+extension NewRecordViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor.MRLightblueColor()
@@ -58,16 +72,12 @@ class NewRecordViewController: UIViewController {
         
         timerLabel.text = String(paceCounter)
         
-        
-        
-        
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+}
+
+// MARK: - Setup
+
+extension NewRecordViewController {
     func addGradient() {
         let layer = CAGradientLayer()
         layer.frame = self.view.bounds
@@ -79,9 +89,9 @@ class NewRecordViewController: UIViewController {
     func runTimedCode() {
         timerLabel.text = String(paceCounter++)
     }
-    
-    
+
 }
+
 
 // MARK: - CLLocationManagerDelegate
 extension NewRecordViewController: CLLocationManagerDelegate {
@@ -194,7 +204,7 @@ extension NewRecordViewController {
         } catch {
             fatalError("Failure to save context.")
         }
-
+        
         
     }
 }
