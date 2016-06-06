@@ -1,12 +1,26 @@
 PODS:
+  - Bolts (1.7.0):
+    - Bolts/AppLinks (= 1.7.0)
+    - Bolts/Tasks (= 1.7.0)
+  - Bolts/AppLinks (1.7.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.7.0)
+  - FBSDKCoreKit (4.12.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.12.0):
+    - FBSDKCoreKit
   - GoogleMaps (1.13.2)
   - SideMenu (1.1.7)
 
 DEPENDENCIES:
+  - FBSDKLoginKit (~> 4.12)
   - GoogleMaps
   - SideMenu
 
 SPEC CHECKSUMS:
+  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
+  FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
   GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
   SideMenu: 7b420772e1aa7a2b3a0b0e191566e7e8e0868f53
 

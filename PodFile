@@ -4,3 +4,4 @@ use_frameworks!
 
 pod 'SideMenu'
 pod 'GoogleMaps'
+pod 'FBSDKLoginKit', '~> 4.12'
