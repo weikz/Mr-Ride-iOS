@@ -387,19 +387,6 @@
                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="3"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bP-ZU-84I">
-                                <rect key="frame" x="76" y="495" width="224" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                                <size key="titleShadowOffset" width="0.0" height="-2"/>
-                                <state key="normal" title="  Log In">
-                                    <color key="titleColor" red="0.38823530077934265" green="0.84313726425170898" blue="0.96470588445663452" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginButton:" destination="zb4-rN-L3T" eventType="touchUpInside" id="XMW-1M-mXQ"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vt0-hD-9zy">
                                 <rect key="frame" x="128" y="234" width="227" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -430,13 +417,28 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-facebook" translatesAutoresizingMaskIntoConstraints="NO" id="k3f-Kl-pxT">
                                 <rect key="frame" x="106" y="515" width="20" height="20"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bP-ZU-84I">
+                                <rect key="frame" x="75" y="495" width="224" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <size key="titleShadowOffset" width="0.0" height="-2"/>
+                                <state key="normal" title="  Log In">
+                                    <color key="titleColor" red="0.38823530077934265" green="0.84313726425170898" blue="0.96470588445663452" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButton:" destination="zb4-rN-L3T" eventType="touchUpInside" id="0ID-K2-hoW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.38823530077934265" green="0.84313726425170898" blue="0.96470588445663452" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="heightTextField" destination="Vt0-hD-9zy" id="JMz-QE-ecf"/>
                         <outlet property="loginButton" destination="4bP-ZU-84I" id="96B-2w-3YH"/>
-                        <segue destination="PDc-sk-5hE" kind="show" identifier="toHomePage" id="FTC-kD-nfa"/>
+                        <outlet property="weightTextField" destination="QdQ-zD-jwa" id="TTd-vb-Tk0"/>
+                        <segue destination="PDc-sk-5hE" kind="show" identifier="toNewRecordPage" id="ubC-j2-Er8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0E3-5i-csc" userLabel="First Responder" sceneMemberID="firstResponder"/>

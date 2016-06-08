@@ -13,7 +13,9 @@ import CoreData
 class NewRecordViewController: UIViewController {
     
     let locationManager = CLLocationManager()
-    
+    var integerHeight = 0.0
+    var integerWeight = 0.0
+   
     var startLocation: CLLocation!
     var lastLocation: CLLocation!
     var distance = 0.0
@@ -33,6 +35,7 @@ class NewRecordViewController: UIViewController {
     var averageSpeed:Double = 0.0
     
     let context = DataController().managedObjectContext
+    var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
@@ -80,6 +83,15 @@ extension NewRecordViewController {
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        
+        
+        // caculate cal
+        if let userHeightForCaculateCalories = defaults.objectForKey("userHeight") as? String {
+            integerHeight = Double(userHeightForCaculateCalories)!
+        }
+        if let userWeightForCaculateCalories = defaults.objectForKey("userWeight") as? String {
+            integerWeight = Double(userWeightForCaculateCalories)!
+        }
     }
     
 }
@@ -157,7 +169,7 @@ extension NewRecordViewController: CLLocationManagerDelegate {
                 
                 averageSpeedLabel.text = String(round(100.0 * lastLocation.speed) / 100.0) + " km/h"
                 
-                calories = distance * 0.5
+                calories = distance * integerHeight * integerWeight * 0.05
                 
                 caloriesLabel.text = String(round(100.0 * calories) / 100.0) + " cal"
                 
