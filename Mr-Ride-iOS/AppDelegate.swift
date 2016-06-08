@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
 //        let logInViewController = LoginViewController() // from storyboard
-//        
+//
 //        window?.rootViewController = logInViewController
         
         

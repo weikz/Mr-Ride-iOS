@@ -36,6 +36,7 @@
 		33ADF1151CF2B3F900BA6BAF /* MRFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADF1131CF2B3F900BA6BAF /* MRFont.swift */; };
 		33C9BFB21D07CEB7001917CE /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9BFB11D07CEB7001917CE /* SideMenuTableViewController.swift */; };
 		33C9BFB41D07E12C001917CE /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9BFB31D07E12C001917CE /* SideMenuTableViewCell.swift */; };
+		33C9BFBB1D080481001917CE /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9BFBA1D080481001917CE /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		33ADF1131CF2B3F900BA6BAF /* MRFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRFont.swift; sourceTree = "<group>"; };
 		33C9BFB11D07CEB7001917CE /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		33C9BFB31D07E12C001917CE /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
+		33C9BFBA1D080481001917CE /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		8FF2A223A5D06F20F66D6658 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E1CE9D294D68EE5D440812D4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -151,6 +153,7 @@
 				33847AC81D0017D8009B2AB4 /* StatisticViewController.swift */,
 				33847ACA1D00234A009B2AB4 /* MainNavigationController.swift */,
 				333B768D1D0163BE0026BC1B /* LoginViewController.swift */,
+				33C9BFBA1D080481001917CE /* HistoryViewController.swift */,
 			);
 			path = "Mr-Ride-iOS";
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				33847AC91D0017D8009B2AB4 /* StatisticViewController.swift in Sources */,
 				33ADF1151CF2B3F900BA6BAF /* MRFont.swift in Sources */,
 				33AAF06A1CF2A4B600F14E31 /* AppDelegate.swift in Sources */,
+				33C9BFBB1D080481001917CE /* HistoryViewController.swift in Sources */,
 				33847ACB1D00234A009B2AB4 /* MainNavigationController.swift in Sources */,
 				337471271CFE85E600E0C5D0 /* Record+CoreDataProperties.swift in Sources */,
 				33ADF1141CF2B3F900BA6BAF /* MRColor.swift in Sources */,

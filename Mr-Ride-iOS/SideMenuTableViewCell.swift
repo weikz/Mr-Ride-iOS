@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol SideMenuDelegate {
+    
+}
+
 class SideMenuTableViewCell: UITableViewCell {
 
     @IBOutlet weak var sideMenuItem: UIButton!
+    var delegate: SideMenuDelegate?
     
     // MARK: - View Life Cycle
     

@@ -11,6 +11,8 @@ import UIKit
 class SideMenuTableViewController: UITableViewController {
 
     let barItems = ["Home", "History", "Map"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +34,22 @@ class SideMenuTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50
     }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        switch barItems[indexPath.row] {
+        case "Home":
+            performSegueWithIdentifier("sideMenuToHomePage", sender: nil)
+            
+        case "History":
+            performSegueWithIdentifier("sideMenuToHistoryPage", sender: nil)
+        
+        case "Map":
+            print("Map")
+            
+        default: break
+        }
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("sideMenuCell", forIndexPath: indexPath) as! SideMenuTableViewCell
@@ -40,6 +58,12 @@ class SideMenuTableViewController: UITableViewController {
         
         return cell
     }
+    
 
+
+    
+}
+
+extension SideMenuTableViewController: SideMenuDelegate {
     
 }
