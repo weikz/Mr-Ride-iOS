@@ -34,6 +34,8 @@
 		33AAF0771CF2A4B600F14E31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33AAF0751CF2A4B600F14E31 /* LaunchScreen.storyboard */; };
 		33ADF1141CF2B3F900BA6BAF /* MRColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADF1121CF2B3F900BA6BAF /* MRColor.swift */; };
 		33ADF1151CF2B3F900BA6BAF /* MRFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADF1131CF2B3F900BA6BAF /* MRFont.swift */; };
+		33C9BFB21D07CEB7001917CE /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9BFB11D07CEB7001917CE /* SideMenuTableViewController.swift */; };
+		33C9BFB41D07E12C001917CE /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9BFB31D07E12C001917CE /* SideMenuTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		33AAF0781CF2A4B600F14E31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33ADF1121CF2B3F900BA6BAF /* MRColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRColor.swift; sourceTree = "<group>"; };
 		33ADF1131CF2B3F900BA6BAF /* MRFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRFont.swift; sourceTree = "<group>"; };
+		33C9BFB11D07CEB7001917CE /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
+		33C9BFB31D07E12C001917CE /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		8FF2A223A5D06F20F66D6658 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E1CE9D294D68EE5D440812D4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -131,6 +135,7 @@
 		33AAF0681CF2A4B500F14E31 /* Mr-Ride-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				33C9BFB51D07E132001917CE /* SideMenu */,
 				337471291CFE85ED00E0C5D0 /* CoreData */,
 				33AF78DA1CFD62D70045A555 /* NewRecords */,
 				33ADF1111CF2B3DA00BA6BAF /* Resources */,
@@ -142,7 +147,6 @@
 				33AAF0751CF2A4B600F14E31 /* LaunchScreen.storyboard */,
 				33AAF0781CF2A4B600F14E31 /* Info.plist */,
 				332278AE1CF4242400C793C7 /* NewRecordViewController.swift */,
-				334839401CF6CE8200C94FCB /* buttonPlayAndPause.swift */,
 				3374712A1CFECBEE00E0C5D0 /* DataController.swift */,
 				33847AC81D0017D8009B2AB4 /* StatisticViewController.swift */,
 				33847ACA1D00234A009B2AB4 /* MainNavigationController.swift */,
@@ -164,8 +168,18 @@
 		33AF78DA1CFD62D70045A555 /* NewRecords */ = {
 			isa = PBXGroup;
 			children = (
+				334839401CF6CE8200C94FCB /* buttonPlayAndPause.swift */,
 			);
 			name = NewRecords;
+			sourceTree = "<group>";
+		};
+		33C9BFB51D07E132001917CE /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				33C9BFB11D07CEB7001917CE /* SideMenuTableViewController.swift */,
+				33C9BFB31D07E12C001917CE /* SideMenuTableViewCell.swift */,
+			);
+			name = SideMenu;
 			sourceTree = "<group>";
 		};
 		8185DDF3445D60EE32657731 /* Frameworks */ = {
@@ -318,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33C9BFB41D07E12C001917CE /* SideMenuTableViewCell.swift in Sources */,
 				332278AF1CF4242400C793C7 /* NewRecordViewController.swift in Sources */,
 				33AAF06C1CF2A4B600F14E31 /* HomeViewController.swift in Sources */,
 				337471281CFE85E600E0C5D0 /* Record.swift in Sources */,
@@ -331,6 +346,7 @@
 				3374712B1CFECBEE00E0C5D0 /* DataController.swift in Sources */,
 				333B768E1D0163BE0026BC1B /* LoginViewController.swift in Sources */,
 				33AAF0721CF2A4B600F14E31 /* Mr_Ride_iOS.xcdatamodeld in Sources */,
+				33C9BFB21D07CEB7001917CE /* SideMenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
