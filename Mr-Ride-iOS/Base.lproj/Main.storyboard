@@ -4,6 +4,12 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="RobotoMono-Light.ttf">
+            <string>RobotoMono-Light</string>
+            <string>RobotoMono-Light</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Side Menu-->
         <scene sceneID="vqq-k4-XeI">
@@ -15,7 +21,7 @@
                         <color key="backgroundColor" red="0.054901961239999998" green="0.20784313979999999" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sideMenuCell" id="2Ky-3l-bb0" customClass="SideMenuTableViewCell" customModule="Mr_Ride_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Ky-3l-bb0" id="uJs-yf-IGU">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -64,11 +70,53 @@
                     <view key="view" contentMode="scaleToFill" id="gkx-5V-QHJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="23" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5bL-XY-W7p">
+                                <rect key="frame" x="42" y="227" width="290" height="373"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="41" id="Sy0-t8-7Vs">
+                                        <rect key="frame" x="0.0" y="28" width="290" height="41"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sy0-t8-7Vs" id="cj3-w9-rlN">
+                                            <rect key="frame" x="0.0" y="0.0" width="290" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOY-sM-ISi">
+                                                    <rect key="frame" x="5" y="-20" width="290" height="58"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="48" id="gqU-ib-wmx">
+                                        <rect key="frame" x="0.0" y="69" width="290" height="48"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gqU-ib-wmx" id="R3V-Ah-erS">
+                                            <rect key="frame" x="0.0" y="0.0" width="290" height="47"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30th" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qv6-k8-UJR">
+                                                    <rect key="frame" x="8" y="2" width="290" height="44"/>
+                                                    <fontDescription key="fontDescription" name="RobotoMono-Light" family="Roboto Mono" pointSize="24"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.050980392843484879" green="0.20784313976764679" blue="0.25098040699958801" alpha="0.85000002384185791" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.38823530080000002" green="0.84313726430000002" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="History" id="s80-im-x02">
                         <barButtonItem key="leftBarButtonItem" image="icon-menu" id="3J8-0T-ztA">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="GpR-jv-MMN" kind="show" id="B0f-cf-R6H"/>
                             </connections>
@@ -79,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Au-3J-Bd2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1886.5" y="-643.5"/>
+            <point key="canvasLocation" x="1886.5" y="-653.5"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="CFV-IY-Wst">
@@ -266,8 +314,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J36-U3-pDi">
-                                <rect key="frame" x="108" y="291" width="169" height="36"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <rect key="frame" x="83" y="291" width="209" height="36"/>
+                                <fontDescription key="fontDescription" name="RobotoMono-Light" family="Roboto Mono" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -515,7 +563,7 @@
         <image name="logo-facebook" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="44W-S8-20g"/>
         <segue reference="B0f-cf-R6H"/>
+        <segue reference="44W-S8-20g"/>
     </inferredMetricsTieBreakers>
 </document>

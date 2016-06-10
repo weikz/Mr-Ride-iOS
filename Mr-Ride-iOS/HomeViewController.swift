@@ -39,13 +39,6 @@ class HomeViewController: UIViewController {
         letsRideButton.layer.cornerRadius = 30
         
         //NSAttributedString Use To Count's string interpolation
-        
-        let button = UIButton(type: .Custom)
-        button.frame = CGRectMake(160, 100, 50, 50)
-        button.layer.cornerRadius = 0.5 * button.bounds.size.width
-        button.setImage(UIImage(named:"thumbsUp.png"), forState: .Normal)
-        button.addTarget(self, action: #selector(thumbsUpButtonPressed), forControlEvents: .TouchUpInside)
-        view.addSubview(button)
     }
 
     override func didReceiveMemoryWarning() {

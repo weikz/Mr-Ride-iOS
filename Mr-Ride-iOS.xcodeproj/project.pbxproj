@@ -137,6 +137,7 @@
 		33AAF0681CF2A4B500F14E31 /* Mr-Ride-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				33E0E3461D090E0400FCC526 /* History */,
 				33C9BFB51D07E132001917CE /* SideMenu */,
 				337471291CFE85ED00E0C5D0 /* CoreData */,
 				33AF78DA1CFD62D70045A555 /* NewRecords */,
@@ -153,7 +154,6 @@
 				33847AC81D0017D8009B2AB4 /* StatisticViewController.swift */,
 				33847ACA1D00234A009B2AB4 /* MainNavigationController.swift */,
 				333B768D1D0163BE0026BC1B /* LoginViewController.swift */,
-				33C9BFBA1D080481001917CE /* HistoryViewController.swift */,
 			);
 			path = "Mr-Ride-iOS";
 			sourceTree = "<group>";
@@ -183,6 +183,14 @@
 				33C9BFB31D07E12C001917CE /* SideMenuTableViewCell.swift */,
 			);
 			name = SideMenu;
+			sourceTree = "<group>";
+		};
+		33E0E3461D090E0400FCC526 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				33C9BFBA1D080481001917CE /* HistoryViewController.swift */,
+			);
+			name = History;
 			sourceTree = "<group>";
 		};
 		8185DDF3445D60EE32657731 /* Frameworks */ = {
