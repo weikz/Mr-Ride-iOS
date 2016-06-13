@@ -10,7 +10,8 @@ import UIKit
 import SideMenu
 
 class HomeViewController: UIViewController {
-
+    var conuter = 0
+    
     @IBOutlet weak var totalDistanceCount: UILabel!
     @IBOutlet weak var totalCountsCount: UILabel!
     @IBOutlet weak var averageSpeedCount: UILabel!
@@ -23,30 +24,47 @@ class HomeViewController: UIViewController {
     }
     
     
+    
+    
+}
+
+// MARK: - View Life Cycle
+extension HomeViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = UIColor.MRLightblueColor()
+        setupNavBar()
+        setupLogo()
+        setupLetsRideButton()
         
-        // Set Navigation Bar Item Logo
+        //NSAttributedString Use To Count's string interpolation
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+            self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func thumbsUpButtonPressed() {
+        print("thumbs up button pressed")
+    }
+}
+
+// MARK: - Setup
+extension HomeViewController {
+    func setupNavBar() {
+        navigationController?.navigationBar.barTintColor = UIColor.MRLightblueColor()
+
+    }
+    
+    func setupLogo() {
         let logo = UIImageView(image: UIImage(named: "logo-bike.png"))
         logo.image = logo.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
         logo.tintColor = .whiteColor()
         self.navigationItem.titleView = logo
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        
-        // Set Let's Ride button
+    }
+    
+    func setupLetsRideButton() {
         letsRideButton.layer.cornerRadius = 30
-        
-        //NSAttributedString Use To Count's string interpolation
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    func thumbsUpButtonPressed() {
-        print("thumbs up button pressed")
-    }
-    
 }

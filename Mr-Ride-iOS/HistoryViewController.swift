@@ -12,8 +12,6 @@ class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,7 +21,9 @@ class HistoryViewController: UIViewController {
     
     
     override func viewDidDisappear(animated: Bool) {
-        print("history page disappear")
+        if self.isBeingDismissed() {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
 

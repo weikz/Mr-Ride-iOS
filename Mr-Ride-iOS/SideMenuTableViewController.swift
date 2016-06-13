@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class SideMenuTableViewController: UITableViewController {
 
@@ -15,7 +16,7 @@ class SideMenuTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationController?.navigationBarHidden = true
     }
 

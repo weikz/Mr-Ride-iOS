@@ -137,6 +137,7 @@
 		33AAF0681CF2A4B500F14E31 /* Mr-Ride-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				33F89B011D0E581900993678 /* Map */,
 				33E0E3461D090E0400FCC526 /* History */,
 				33C9BFB51D07E132001917CE /* SideMenu */,
 				337471291CFE85ED00E0C5D0 /* CoreData */,
@@ -149,7 +150,6 @@
 				33AAF0731CF2A4B600F14E31 /* Assets.xcassets */,
 				33AAF0751CF2A4B600F14E31 /* LaunchScreen.storyboard */,
 				33AAF0781CF2A4B600F14E31 /* Info.plist */,
-				332278AE1CF4242400C793C7 /* NewRecordViewController.swift */,
 				3374712A1CFECBEE00E0C5D0 /* DataController.swift */,
 				33847AC81D0017D8009B2AB4 /* StatisticViewController.swift */,
 				33847ACA1D00234A009B2AB4 /* MainNavigationController.swift */,
@@ -172,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				334839401CF6CE8200C94FCB /* buttonPlayAndPause.swift */,
+				332278AE1CF4242400C793C7 /* NewRecordViewController.swift */,
 			);
 			name = NewRecords;
 			sourceTree = "<group>";
@@ -191,6 +192,13 @@
 				33C9BFBA1D080481001917CE /* HistoryViewController.swift */,
 			);
 			name = History;
+			sourceTree = "<group>";
+		};
+		33F89B011D0E581900993678 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 		8185DDF3445D60EE32657731 /* Frameworks */ = {
