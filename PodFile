@@ -5,3 +5,5 @@ use_frameworks!
 pod 'SideMenu'
 pod 'GoogleMaps'
 pod 'FBSDKLoginKit', '~> 4.12'
+pod 'SwiftyJSON', '~> 2.3'
+pod 'Alamofire', '~> 3.4'
