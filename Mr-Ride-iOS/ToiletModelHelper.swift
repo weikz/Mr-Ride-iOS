@@ -58,7 +58,6 @@ extension ToiletModelHelper {
             coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
             name: name )
         
-        print(toilet.name)
         return toilet
     }
 }

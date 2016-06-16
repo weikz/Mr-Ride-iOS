@@ -14,7 +14,7 @@ class DataTaipeiManager {
     typealias getToiletSuccess = (toilets: [ToiletModel]) -> Void
     typealias getToiletFailure = (error: ErrorType) -> Void
     
-    func getToilet(success: getToiletSuccess, failure: getToiletFailure) -> Request {
+    func getToilet(success: getToiletSuccess, failure: getToiletFailure) -> Void {
         
         let URL = NSURL(string: "http://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=fe49c753-9358-49dd-8235-1fcadf5bfd3f")!
         let URLRequest = NSMutableURLRequest(URL: URL)
@@ -39,14 +39,16 @@ class DataTaipeiManager {
                         print(error)
                         
                     }
+                    
+                    success(toilets:toilets)
                 }
             case .Failure(let err):
                 // todo: print ErrorType
                 print("errorType")
+                failure(error: err)
                 
             }
             
         }
-        return request
     }
 }

@@ -15,7 +15,7 @@ class NewRecordViewController: UIViewController {
     let locationManager = CLLocationManager()
     var integerHeight = 0.0
     var integerWeight = 0.0
-   
+    
     var startLocation: CLLocation!
     var lastLocation: CLLocation!
     var distance = 0.0
@@ -62,13 +62,13 @@ class NewRecordViewController: UIViewController {
     }
     
     
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     
     
 }
@@ -147,7 +147,6 @@ extension NewRecordViewController: CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        
         // Be careful!!!!
         // check timestamp
         // call 500 times instead of 1000? hint: NSTimer
@@ -175,12 +174,6 @@ extension NewRecordViewController: CLLocationManagerDelegate {
                 
             }
         }
-        
-        
-        
-        // set Calories
-        
-        
         
         if let location = locations.first {
             
