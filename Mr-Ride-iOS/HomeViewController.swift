@@ -39,9 +39,6 @@ extension HomeViewController {
         //NSAttributedString Use To Count's string interpolation
     }
     
-    override func viewDidDisappear(animated: Bool) {
-            self.dismissViewControllerAnimated(true, completion: nil)
-    }
     
     func thumbsUpButtonPressed() {
         print("thumbs up button pressed")

@@ -226,11 +226,11 @@ extension NewRecordViewController {
     
     func saveDataToCoreData() {
         let record = NSEntityDescription.insertNewObjectForEntityForName("Record", inManagedObjectContext: context)
+        record.setValue(NSDate(), forKey: "timestamp")
         record.setValue(distance, forKey: "distance")
-        record.setValue(getAverageSpeed(), forKey: "averageSpeed")
+        record.setValue(6, forKey: "averageSpeed")
         record.setValue(calories, forKey: "calories")
         record.setValue(getPathArray(), forKey: "path")
-        //record.setValue(time)
         
         do {
             try context.save()

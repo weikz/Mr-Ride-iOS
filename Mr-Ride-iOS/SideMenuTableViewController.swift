@@ -46,8 +46,7 @@ class SideMenuTableViewController: UITableViewController {
             performSegueWithIdentifier("sideMenuToHistoryPage", sender: nil)
         
         case "Map":
-            print("Map")
-            
+            performSegueWithIdentifier("sideMenuToMapPage", sender: nil)
         default: break
         }
     }

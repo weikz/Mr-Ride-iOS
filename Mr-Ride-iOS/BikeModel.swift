@@ -14,11 +14,13 @@ class BikeModel {
     let identifier: String
     let coordinate: CLLocationCoordinate2D
     let name: String
+    let location: String
     
-    init(identifier: String, coordinate: CLLocationCoordinate2D, name: String){
+    init(identifier: String, coordinate: CLLocationCoordinate2D, name: String, location: String){
         self.identifier = identifier
         self.coordinate = coordinate
         self.name = name
+        self.location = location
         
     }
 }

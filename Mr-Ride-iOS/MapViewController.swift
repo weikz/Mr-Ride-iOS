@@ -11,6 +11,7 @@ import GoogleMaps
 
 class MapViewController: UIViewController, UIPickerViewDataSource {
     var toilets: [ToiletModel] = []
+    var bikes: [BikeModel] = []
 
     // Picker View Property
     @IBOutlet weak var pickerViewBackground: UIView!
@@ -28,6 +29,11 @@ class MapViewController: UIViewController, UIPickerViewDataSource {
     @IBAction func pickerViewButton(sender: UIButton) {
         pickerViewBackground.hidden = false
     }
+    
+    @IBAction func pickerViewDoneButton(sender: AnyObject) {
+        pickerViewBackground.hidden = true
+    }
+    
 
 }
 
@@ -38,13 +44,8 @@ extension MapViewController {
         super.viewDidLoad()
         locationManager.delegate = self
         setupPickerView()
-        setupToiletMarker()
-        getToilet()
-        setupToiletMarker()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        print("2")
+        getToilets()
+        getBikes()
     }
 }
 
@@ -63,46 +64,53 @@ extension MapViewController {
 // MARK: - Action
 
 extension MapViewController {
-    func getToilet() {
+    func getToilets() {
         let manager = DataTaipeiManager()
         manager.getToilet({ [weak self] toilets in
             guard let weakSelf = self else { return }
-            
+
             weakSelf.toilets = toilets
             weakSelf.setupToiletMarker()
-            print("1")
             
             }, failure: {error in print(error)})
     }
     
     func setupToiletMarker() {
-//        for toiletCoordinate in toilets {
-//            let position = CLLocationCoordinate2D(toiletCoordinate.coordinate)
-//            let toilet = GMSMarker(position: position)
-//            toilet.title = "Toilet"
-//            toilet.icon = UIImage(named: "icon-toilet")
-//            toilet.map = mapView
-//            print("in for in")
-//            print(toiletCoordinate.coordinate)
-//        }
-
         mapView.clear()
         
-        var toiletIndex = 0
         for toilet in toilets {
-            let  position = toilet.coordinate
+            let position = toilet.coordinate
             let marker = GMSMarker(position: position)
             marker.icon = UIImage(named: "icon-toilet")
-            //marker.title = "\(toilet.location)"
-            marker.userData = toiletIndex
+            marker.title = "\(toilet.name)"
             marker.map = mapView
+        }
+    }
+    
+    func getBikes() {
+        let manager = DataTaipeiManager()
+        manager.getBike({ [weak self] bikes in
+            guard let weakSelf = self else { return }
             
-            toiletIndex += 1
+            weakSelf.bikes = bikes
+            weakSelf.setupBikeMarker()
+            
+            }, failure: { error in print(error)})
+    }
+    
+    func setupBikeMarker() {
+        mapView.clear()
+        
+        for bike in bikes {
+            let position = bike.coordinate
+            let marker = GMSMarker(position: position)
+            marker.icon = UIImage(named: "icon-station")
+            marker.title = "\(bike.name)"
+            marker.map = mapView
         }
     }
 }
 
-// MARK: - GoogleMapSDK
 
 
 
@@ -125,14 +133,14 @@ extension MapViewController: UIPickerViewDelegate {
     {
         if(row == 0)
         {
-            self.view.backgroundColor = UIColor.whiteColor();
+            //
         }
         else if(row == 1)
         {
-            self.view.backgroundColor = UIColor.redColor();
+            //
         } else
         {
-            self.view.backgroundColor = UIColor.blueColor();
+            //
         }
     }
 }
@@ -154,5 +162,6 @@ extension MapViewController: CLLocationManagerDelegate {
         if let location = locations.last {
         mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
         }
+        locationManager.stopUpdatingLocation()
     }
 }

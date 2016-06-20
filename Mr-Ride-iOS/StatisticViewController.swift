@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+
 class StatisticViewController: UIViewController {
 
     @IBOutlet weak var distanceLabel: UILabel!
@@ -17,6 +18,18 @@ class StatisticViewController: UIViewController {
     
     let context = DataController().managedObjectContext
     let getRequest = NSFetchRequest(entityName: "Record")
+    
+    //data
+    private let runDataModel = RunDataModel()
+    var runDataStructArray: [RunDataModel.runDataStruct] = []
+    var runDataStruct = RunDataModel.runDataStruct()
+    
+    enum PreviousPage {
+        case TrackingPageViewController
+        case HistoryViewController
+    }
+    var previousPage: PreviousPage = .TrackingPageViewController
+
     
     
     
