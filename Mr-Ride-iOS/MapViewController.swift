@@ -14,6 +14,8 @@ class MapViewController: UIViewController, UIPickerViewDataSource {
     var bikes: [BikeModel] = []
 
     // Picker View Property
+    enum PickerViewStatus { case Toilets, Youbike }
+    var pickerViewStatus: PickerViewStatus = .Toilets
     @IBOutlet weak var pickerViewBackground: UIView!
     @IBOutlet weak var pickerViewButton: UIButton!
     
@@ -59,6 +61,7 @@ extension MapViewController {
         pickerViewBackground.addSubview(pickerView)
         pickerViewBackground.hidden = true
     }
+    
 }
 
 // MARK: - Action
@@ -76,8 +79,6 @@ extension MapViewController {
     }
     
     func setupToiletMarker() {
-        mapView.clear()
-        
         for toilet in toilets {
             let position = toilet.coordinate
             let marker = GMSMarker(position: position)
@@ -99,14 +100,13 @@ extension MapViewController {
     }
     
     func setupBikeMarker() {
-        mapView.clear()
-        
         for bike in bikes {
             let position = bike.coordinate
             let marker = GMSMarker(position: position)
             marker.icon = UIImage(named: "icon-station")
             marker.title = "\(bike.name)"
             marker.map = mapView
+            print(bike.name)
         }
     }
 }
@@ -129,18 +129,15 @@ extension MapViewController: UIPickerViewDelegate {
         return pickerViewDataSource[row]
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-    {
-        if(row == 0)
-        {
-            //
-        }
-        else if(row == 1)
-        {
-            //
-        } else
-        {
-            //
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch row {
+        case 0:
+            // toilets
+            print("todo: 0")
+        case 1:
+            // youbikes
+            print("todo: 1")
+        default: break
         }
     }
 }
@@ -162,6 +159,5 @@ extension MapViewController: CLLocationManagerDelegate {
         if let location = locations.last {
         mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
         }
-        locationManager.stopUpdatingLocation()
     }
 }
