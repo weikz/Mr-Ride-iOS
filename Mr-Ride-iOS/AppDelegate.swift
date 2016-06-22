@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import GoogleMaps
 import FBSDKLoginKit
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         GMSServices.provideAPIKey(googleMapsApiKey)
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        Fabric.with([Crashlytics.self])
+
         
 //        let logInViewController = LoginViewController() // from storyboard
 //

@@ -9,6 +9,9 @@ PODS:
   - Charts (2.2.5):
     - Charts/Core (= 2.2.5)
   - Charts/Core (2.2.5)
+  - Crashlytics (3.7.1):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.7)
   - FBSDKCoreKit (4.12.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.12.0):
@@ -20,6 +23,8 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 3.4)
   - Charts (~> 2.2)
+  - Crashlytics (~> 3.7)
+  - Fabric (~> 1.6)
   - FBSDKLoginKit (~> 4.12)
   - GoogleMaps
   - SideMenu
@@ -29,6 +34,8 @@ SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
+  Crashlytics: 3cdd4c9655be68032a0cf0379e0fb5ef6af22cad
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
   GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1

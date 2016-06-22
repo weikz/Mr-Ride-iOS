@@ -28,6 +28,8 @@ class HistoryViewController: UIViewController {
         case gap
     }
     var cellStatus: CellStatus = .gap
+    
+    
 }
 
 
