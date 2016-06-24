@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zb4-rN-L3T">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iEz-8u-Cb7">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -11,54 +11,30 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Side Menu-->
-        <scene sceneID="vqq-k4-XeI">
+        <!--View Controller-->
+        <scene sceneID="uvH-hZ-E0O">
             <objects>
-                <tableViewController storyboardIdentifier="RootTableViewController" id="dwR-u3-hub" customClass="SideMenuTableViewController" customModule="Mr_Ride_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cOi-1H-P3Z">
+                <viewController id="45g-Nq-vQK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9h8-rm-55Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="b4b-pf-vOi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L48-oA-iwb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.054901961239999998" green="0.20784313979999999" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sideMenuCell" id="2Ky-3l-bb0" customClass="SideMenuTableViewCell" customModule="Mr_Ride_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Ky-3l-bb0" id="uJs-yf-IGU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CpI-Pa-46O">
-                                            <rect key="frame" x="48" y="-1" width="79" height="41"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                            <state key="normal" title="Home">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            </state>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.054901961237192154" green="0.20784313976764679" blue="0.25098040699958801" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="sideMenuItem" destination="CpI-Pa-46O" id="8y6-yR-9h9"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="dwR-u3-hub" id="veM-l0-Jyt"/>
-                            <outlet property="delegate" destination="dwR-u3-hub" id="292-Tv-uJn"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Side Menu" id="Azm-ep-4gn"/>
+                        <color key="backgroundColor" red="0.38823530080000002" green="0.84313726430000002" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="1d8-Ry-C5F">
+                        <barButtonItem key="leftBarButtonItem" image="icon-menu" id="NVN-Cm-bqo">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="sideMenuToHomePage" id="44W-S8-20g"/>
-                        <segue destination="Vlv-7l-j21" kind="show" identifier="sideMenuToHistoryPage" id="cfc-za-qXA"/>
-                        <segue destination="nJA-Nb-6up" kind="show" identifier="sideMenuToMapPage" id="m9k-0O-2c4"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IoI-tZ-OLo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sm3-mc-Qfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2716.5" y="82.5"/>
+            <point key="canvasLocation" x="1807.5" y="112.5"/>
         </scene>
         <!--History-->
         <scene sceneID="HRk-tI-Vc1">
@@ -87,9 +63,6 @@
                     <navigationItem key="navigationItem" title="History" id="s80-im-x02">
                         <barButtonItem key="leftBarButtonItem" image="icon-menu" id="3J8-0T-ztA">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="GpR-jv-MMN" kind="show" id="B0f-cf-R6H"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -102,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Au-3J-Bd2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2196.5" y="-711.5"/>
+            <point key="canvasLocation" x="2857.5" y="150.5"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="IPk-U2-nZp">
@@ -179,27 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XYh-6k-kn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2734.5" y="-705.5"/>
-        </scene>
-        <!--Side Menu Navigation Controller-->
-        <scene sceneID="CFV-IY-Wst">
-            <objects>
-                <navigationController storyboardIdentifier="SideMenuNavigationController" id="GpR-jv-MMN" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9VW-VV-n0G">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <segue destination="dwR-u3-hub" kind="relationship" relationship="rootViewController" id="Llx-za-HJR"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2ku-gA-cDa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2189.5" y="104.5"/>
+            <point key="canvasLocation" x="2857.5" y="1022.5"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -282,9 +235,6 @@
                     <navigationItem key="navigationItem" id="PMw-eK-j0Q">
                         <barButtonItem key="leftBarButtonItem" image="icon-menu" id="2cH-ry-ivE">
                             <color key="tintColor" red="0.99278479814529419" green="0.99594038724899292" blue="0.99582940340042114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="GpR-jv-MMN" kind="presentation" id="kCq-HU-vJF"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -299,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1368.5" y="132.5"/>
+            <point key="canvasLocation" x="1807.5" y="-692.5"/>
         </scene>
         <!--New Record View Controller-->
         <scene sceneID="hRe-t0-A52">
@@ -411,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8yd-cH-hFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2189.5" y="857.5"/>
+            <point key="canvasLocation" x="2377.5" y="-692.5"/>
         </scene>
         <!--StatisticViewController-->
         <scene sceneID="TQd-wd-ao0">
@@ -482,11 +432,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="5Zm-mI-GXb">
                         <leftBarButtonItems>
-                            <barButtonItem id="t2U-2i-MKo">
-                                <connections>
-                                    <segue destination="GpR-jv-MMN" kind="presentation" id="5r1-bd-HuF"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem id="t2U-2i-MKo"/>
                             <barButtonItem image="icon-menu" id="XF5-kb-DsT">
                                 <color key="tintColor" red="0.99278479809999998" green="0.9959403872" blue="0.99582940340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </barButtonItem>
@@ -501,27 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Szk-rf-bos" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2778.5" y="857.5"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="vrz-Kk-0AM">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PDc-sk-5hE" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wYK-4s-jVA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gJD-Nm-nXE"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gqW-tU-Zrc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="881.5" y="124.5"/>
+            <point key="canvasLocation" x="3528.5" y="-736.5"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="xGh-jB-r86">
@@ -594,39 +520,32 @@
                         <outlet property="heightTextField" destination="Vt0-hD-9zy" id="JMz-QE-ecf"/>
                         <outlet property="loginButton" destination="4bP-ZU-84I" id="96B-2w-3YH"/>
                         <outlet property="weightTextField" destination="QdQ-zD-jwa" id="TTd-vb-Tk0"/>
-                        <segue destination="PDc-sk-5hE" kind="show" identifier="toNewRecordPage" id="ubC-j2-Er8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0E3-5i-csc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="288.5" y="124.5"/>
+            <point key="canvasLocation" x="812.5" y="112.5"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="3rH-9P-P2Z">
+        <scene sceneID="1jK-cy-WKw">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ekd-Ug-QnN" sceneMemberID="viewController">
-                    <toolbarItems/>
+                <navigationController id="iEz-8u-Cb7" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mHu-lP-6gp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dDl-JI-VFb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Yy5-4a-dbU" kind="relationship" relationship="rootViewController" id="hLL-dc-AVV"/>
+                        <segue destination="45g-Nq-vQK" kind="relationship" relationship="rootViewController" id="Nn1-xI-xar"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oMA-bc-hhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eO3-We-e9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1377" y="857"/>
+            <point key="canvasLocation" x="1311.5" y="112.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="icon-menu" width="30" height="30"/>
         <image name="logo-facebook" width="20" height="20"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="kCq-HU-vJF"/>
-        <segue reference="44W-S8-20g"/>
-    </inferredMetricsTieBreakers>
 </document>

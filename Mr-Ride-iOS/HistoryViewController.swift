@@ -239,14 +239,3 @@ extension HistoryViewController {
         //lineChartView.leftAxis.gridColor = UIColor.whiteColor()
     }
 }
-
-
-
-// MARK: - Initializer
-
-extension HistoryViewController {
-    
-    class func controller() -> HistoryViewController {
-        return UIStoryboard.init(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("HistoryViewController") as! HistoryViewController
-    }
-}

@@ -17,7 +17,7 @@ PODS:
   - FBSDKLoginKit (4.12.0):
     - FBSDKCoreKit
   - GoogleMaps (1.13.2)
-  - SideMenu (1.1.7)
+  - PureLayout (3.0.2)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
@@ -27,7 +27,7 @@ DEPENDENCIES:
   - Fabric (~> 1.6)
   - FBSDKLoginKit (~> 4.12)
   - GoogleMaps
-  - SideMenu
+  - PureLayout (~> 3.0)
   - SwiftyJSON (~> 2.3)
 
 SPEC CHECKSUMS:
@@ -39,7 +39,7 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
   GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
-  SideMenu: 7b420772e1aa7a2b3a0b0e191566e7e8e0868f53
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0

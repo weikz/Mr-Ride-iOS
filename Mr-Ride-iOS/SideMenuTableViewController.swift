@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SideMenu
 
 class SideMenuTableViewController: UITableViewController {
 
@@ -28,27 +27,11 @@ class SideMenuTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return barItems.count
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50
-    }
-
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        switch barItems[indexPath.row] {
-        case "Home":
-            performSegueWithIdentifier("sideMenuToHomePage", sender: nil)
-            
-        case "History":
-            performSegueWithIdentifier("sideMenuToHistoryPage", sender: nil)
-        
-        case "Map":
-            performSegueWithIdentifier("sideMenuToMapPage", sender: nil)
-        default: break
-        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -61,9 +44,5 @@ class SideMenuTableViewController: UITableViewController {
     
 
 
-    
-}
-
-extension SideMenuTableViewController: SideMenuDelegate {
     
 }
