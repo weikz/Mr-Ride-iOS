@@ -18,6 +18,7 @@ class MapViewController: UIViewController, UIPickerViewDataSource {
     var pickerViewStatus: PickerViewStatus = .Toilets
     @IBOutlet weak var pickerViewBackground: UIView!
     @IBOutlet weak var pickerViewButton: UIButton!
+    @IBOutlet weak var sideMenuButton: UIBarButtonItem!
     
     var pickerView = UIPickerView()
     var pickerViewDataSource = ["Toilet", "YouBike"]
@@ -47,6 +48,7 @@ extension MapViewController {
         super.viewDidLoad()
         locationManager.delegate = self
         setupPickerView()
+        setupSideMenu()
         getToilets()
         getBikes()
     }
@@ -62,6 +64,15 @@ extension MapViewController {
         pickerViewBackground.addSubview(pickerView)
         pickerViewBackground.hidden = true
     }
+    
+    func setupSideMenu() {
+        if self.revealViewController() != nil {
+            sideMenuButton.target = self.revealViewController()
+            sideMenuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+    }
+
     
 }
 

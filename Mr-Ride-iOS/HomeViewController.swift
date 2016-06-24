@@ -23,8 +23,7 @@ class HomeViewController: UIViewController {
         self.presentViewController(navigationControllerForRootView, animated: true, completion: nil)
     }
     
-    
-    
+    @IBOutlet weak var sideMenuButton: UIBarButtonItem!
     
 }
 
@@ -32,8 +31,8 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavBar()
         setupLogo()
+        setupSideMenu()
         setupLetsRideButton()
         
         //NSAttributedString Use To Count's string interpolation
@@ -47,11 +46,6 @@ extension HomeViewController {
 
 // MARK: - Setup
 extension HomeViewController {
-    func setupNavBar() {
-        navigationController?.navigationBar.barTintColor = UIColor.MRLightblueColor()
-
-    }
-    
     func setupLogo() {
         let logo = UIImageView(image: UIImage(named: "logo-bike.png"))
         logo.image = logo.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
@@ -59,6 +53,14 @@ extension HomeViewController {
         self.navigationItem.titleView = logo
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    func setupSideMenu() {
+        if self.revealViewController() != nil {
+            sideMenuButton.target = self.revealViewController()
+            sideMenuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
     
     func setupLetsRideButton() {

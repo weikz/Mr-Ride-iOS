@@ -10,7 +10,7 @@ import UIKit
 
 class SideMenuTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var sideMenuItem: UIButton!
+    @IBOutlet weak var cellButton: UILabel!
     
     // MARK: - View Life Cycle
     

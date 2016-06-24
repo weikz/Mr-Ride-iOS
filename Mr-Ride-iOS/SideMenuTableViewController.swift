@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SideMenuTableViewController: UITableViewController {
 
     let barItems = ["Home", "History", "Map"]
@@ -35,11 +36,20 @@ class SideMenuTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("sideMenuCell", forIndexPath: indexPath) as! SideMenuTableViewCell
-        cell.sideMenuItem.setTitle(barItems[indexPath.row], forState: .Normal)
+        let cell = tableView.dequeueReusableCellWithIdentifier("SideMenuCell", forIndexPath: indexPath) as! SideMenuTableViewCell
+        cell.cellButton.text = barItems[indexPath.row]
         
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch barItems[indexPath.row] {
+            case "Home": performSegueWithIdentifier("Show Home", sender: self)
+            case "History": performSegueWithIdentifier("Show History", sender: self)
+            case "Map": performSegueWithIdentifier("Show Map", sender: self)
+        default: break
+        }
     }
     
 

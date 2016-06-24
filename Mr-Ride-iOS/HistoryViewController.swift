@@ -17,6 +17,8 @@ class HistoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var sideMenuButton: UIBarButtonItem!
+    
     private let runDataModel = RunDataModel()
     private var runDataStructArray: [RunDataModel.runDataStruct] = []
     
@@ -41,6 +43,7 @@ extension HistoryViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupSideMenu()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -51,7 +54,20 @@ extension HistoryViewController {
     }
 }
 
+// MARK: - Setup
 
+extension HistoryViewController {
+    func setupNavigationBar() {
+    }
+    
+    func setupSideMenu() {
+        if self.revealViewController() != nil {
+            sideMenuButton.target = self.revealViewController()
+            sideMenuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+    }
+}
 
 // MARK: - TableViewDataSource and Delegate
 
