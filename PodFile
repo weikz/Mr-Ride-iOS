@@ -2,7 +2,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, ‘9.0’
 use_frameworks!
 
-pod 'SideMenu'
 pod 'GoogleMaps'
 pod 'FBSDKLoginKit', '~> 4.12'
 pod 'SwiftyJSON', '~> 2.3'
@@ -10,3 +9,5 @@ pod 'Alamofire', '~> 3.4'
 pod 'Charts', '~> 2.2'
 pod 'Fabric’, ‘~> 1.6'
 pod 'Crashlytics', '~> 3.7'
+pod 'PureLayout', '~> 3.0'
+pod 'SWRevealViewController', '~> 2.3'

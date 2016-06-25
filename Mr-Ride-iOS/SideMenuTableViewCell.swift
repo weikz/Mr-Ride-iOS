@@ -8,14 +8,9 @@
 
 import UIKit
 
-protocol SideMenuDelegate {
-    
-}
-
 class SideMenuTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var sideMenuItem: UIButton!
-    var delegate: SideMenuDelegate?
+    @IBOutlet weak var cellButton: UILabel!
     
     // MARK: - View Life Cycle
     
@@ -23,9 +18,4 @@ class SideMenuTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    
-
-    
-
 }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SideMenu
+
 
 class SideMenuTableViewController: UITableViewController {
 
@@ -28,42 +28,31 @@ class SideMenuTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return barItems.count
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50
     }
-
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        switch barItems[indexPath.row] {
-        case "Home":
-            performSegueWithIdentifier("sideMenuToHomePage", sender: nil)
-            
-        case "History":
-            performSegueWithIdentifier("sideMenuToHistoryPage", sender: nil)
-        
-        case "Map":
-            performSegueWithIdentifier("sideMenuToMapPage", sender: nil)
-        default: break
-        }
-    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("sideMenuCell", forIndexPath: indexPath) as! SideMenuTableViewCell
-        cell.sideMenuItem.setTitle(barItems[indexPath.row], forState: .Normal)
+        let cell = tableView.dequeueReusableCellWithIdentifier("SideMenuCell", forIndexPath: indexPath) as! SideMenuTableViewCell
+        cell.cellButton.text = barItems[indexPath.row]
         
         
         return cell
     }
     
-
-
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch barItems[indexPath.row] {
+            case "Home": performSegueWithIdentifier("Show Home", sender: self)
+            case "History": performSegueWithIdentifier("Show History", sender: self)
+            case "Map": performSegueWithIdentifier("Show Map", sender: self)
+        default: break
+        }
+    }
     
-}
 
-extension SideMenuTableViewController: SideMenuDelegate {
+
     
 }
