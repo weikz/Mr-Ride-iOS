@@ -11,41 +11,36 @@ import CoreData
 
 
 class StatisticViewController: UIViewController {
-
+    
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var averageSpeedLabel: UILabel!
     @IBOutlet weak var caloriesLabel: UILabel!
-    
-    
-    //data
     private let runDataModel = RunDataModel()
     var runDataStructArray: [RunDataModel.runDataStruct] = []
     var runDataStruct = RunDataModel.runDataStruct()
-    
-    enum PreviousPage {
-        case TrackingPageViewController
-        case HistoryViewController
-    }
-    var previousPage: PreviousPage = .TrackingPageViewController
+}
 
-    
-    
-    
+//MARK: - View Life Cycle
+extension StatisticViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
         addGradient()
-        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-
 }
 
+
+//MARK: - Setup
+
 extension StatisticViewController {
+
+    @IBAction func cancelButton(sender: UIButton) {
+        let homeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("HomeViewController")
+        self.navigationController!.pushViewController(homeViewController!, animated: true)
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func getData() {
         let context = DataController().managedObjectContext
         let getRequest = NSFetchRequest(entityName: "Record")
@@ -53,8 +48,7 @@ extension StatisticViewController {
         context.performBlock{
             do {
                 let data = try context.executeFetchRequest(getRequest)
-                self.distanceLabel.text = "\(round(data.last!.valueForKey("distance")! as! Double)) m"
-                self.distanceLabel.text = "hello"
+                self.distanceLabel.text = "\(round(data.last!.valueForKey("distance")! as! Double)) m" ?? "Hello"
                 self.averageSpeedLabel.text = "\(round(data.last!.valueForKey("averageSpeed")! as! Double)) km / h"
                 self.caloriesLabel.text = "\(round(data.last!.valueForKey("calories")! as! Double)) kcal"
             } catch let error {

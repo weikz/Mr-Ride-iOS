@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="RobotoMono-Light.ttf">
@@ -14,7 +13,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="OU3-v3-8e7">
             <objects>
-                <viewController id="mTZ-So-Jkm" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RevealViewController" id="mTZ-So-Jkm" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JfR-0x-RrU"/>
                         <viewControllerLayoutGuide type="bottom" id="hd4-SK-LYI"/>
@@ -236,7 +235,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Mr_Ride_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="Mr_Ride_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -512,12 +511,12 @@
                         <color key="backgroundColor" red="0.38823530077934265" green="0.84313726425170898" blue="0.96470588445663452" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="5Zm-mI-GXb">
-                        <leftBarButtonItems>
-                            <barButtonItem id="t2U-2i-MKo"/>
-                            <barButtonItem image="icon-menu" id="XF5-kb-DsT">
-                                <color key="tintColor" red="0.99278479809999998" green="0.9959403872" blue="0.99582940340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="XF5-kb-DsT">
+                            <color key="tintColor" red="0.99278479809999998" green="0.9959403872" blue="0.99582940340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="cancelButton:" destination="esg-ug-7de" id="HPa-7u-qPd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>

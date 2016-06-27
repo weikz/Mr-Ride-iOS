@@ -235,7 +235,7 @@ extension NewRecordViewController {
             record.calories = calories
             record.path = getPathArray()
         }
-       
+        
         context.performBlock{
             do {
                 try self.context.save()
