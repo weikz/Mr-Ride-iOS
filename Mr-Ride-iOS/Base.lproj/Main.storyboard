@@ -541,6 +541,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image-history-background" translatesAutoresizingMaskIntoConstraints="NO" id="dSg-zQ-6We">
+                                <rect key="frame" x="0.0" y="346" width="375" height="321"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mr. Ride" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ra-cO-Ve5">
                                 <rect key="frame" x="70" y="90" width="244" height="116"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
@@ -576,11 +579,8 @@
                                 <color key="textColor" red="0.054901961239999998" green="0.20784313979999999" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-facebook" translatesAutoresizingMaskIntoConstraints="NO" id="k3f-Kl-pxT">
-                                <rect key="frame" x="106" y="515" width="20" height="20"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bP-ZU-84I">
-                                <rect key="frame" x="75" y="495" width="224" height="60"/>
+                                <rect key="frame" x="75" y="519" width="224" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                 <size key="titleShadowOffset" width="0.0" height="-2"/>
@@ -644,7 +644,7 @@
     </scenes>
     <resources>
         <image name="icon-menu" width="30" height="30"/>
-        <image name="logo-facebook" width="20" height="20"/>
+        <image name="image-history-background" width="1536" height="1021"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="czo-Kb-dlE"/>

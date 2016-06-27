@@ -24,10 +24,6 @@ class LoginViewController: UIViewController {
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             performSegueWithIdentifier("toNewRecordPage", sender: self)
             
-//            let newViewController = UIViewController()
-//            
-//            UIApplication.sharedApplication().delegate?.window??.rootViewController = newViewController
-            
         } else {
             let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
             fbLoginManager.logInWithReadPermissions(["email"], fromViewController: self){ (result, error) -> Void in
@@ -38,14 +34,28 @@ class LoginViewController: UIViewController {
         }
     }
 
-    var fbButton:FBSDKLoginButton = FBSDKLoginButton()
     var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
+}
+
+//MARK: - View Life Cycle
+
+extension LoginViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBackground()
         loginButton.layer.cornerRadius = 30
-        
-        view.addSubview(fbButton)
-        fbButton.center = view.center
+    }
+}
+
+//MARK: - Setup
+
+extension LoginViewController {
+    func setupBackground() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.MRLightblueColor().CGColor, UIColor.pineGreen50Color().CGColor]
+        gradientLayer.locations = [0.5, 1]
+        gradientLayer.frame = view.frame
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 1)
     }
 }
