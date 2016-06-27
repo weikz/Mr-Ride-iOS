@@ -59,6 +59,8 @@ class NewRecordViewController: UIViewController {
         getAverageSpeed()
         saveDataToCoreData()
         performSegueWithIdentifier("toStatisticPage", sender: nil)
+        
+
     }
     
     
@@ -225,19 +227,22 @@ extension NewRecordViewController {
     }
     
     func saveDataToCoreData() {
-        let record = NSEntityDescription.insertNewObjectForEntityForName("Record", inManagedObjectContext: context)
-        record.setValue(NSDate(), forKey: "timestamp")
-        record.setValue(distance, forKey: "distance")
-        record.setValue(6, forKey: "averageSpeed")
-        record.setValue(calories, forKey: "calories")
-        record.setValue(getPathArray(), forKey: "path")
-        
-        do {
-            try context.save()
-        } catch {
-            fatalError("Failure to save context.")
+        if let record = NSEntityDescription.insertNewObjectForEntityForName("Record", inManagedObjectContext: context) as? Record {
+          
+            record.timestamp = NSDate()
+            record.distance = distance
+            record.averageSpeed = 6
+            record.calories = calories
+            record.path = getPathArray()
         }
-        
+       
+        context.performBlock{
+            do {
+                try self.context.save()
+            } catch {
+                fatalError("Failure to save context.")
+            }
+        }
         
     }
 }

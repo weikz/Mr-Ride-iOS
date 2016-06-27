@@ -16,8 +16,6 @@ class StatisticViewController: UIViewController {
     @IBOutlet weak var averageSpeedLabel: UILabel!
     @IBOutlet weak var caloriesLabel: UILabel!
     
-    let context = DataController().managedObjectContext
-    let getRequest = NSFetchRequest(entityName: "Record")
     
     //data
     private let runDataModel = RunDataModel()
@@ -49,13 +47,19 @@ class StatisticViewController: UIViewController {
 
 extension StatisticViewController {
     func getData() {
-        do {
-            let data = try context.executeFetchRequest(getRequest)
-            distanceLabel.text = "\(round(data.last!.valueForKey("distance")! as! Double)) m"
-            // averageSpeedLabel.text = "\(round(data.last!.valueForKey("averageSpeed")! as! Double)) km / h"
-            caloriesLabel.text = "\(round(data.last!.valueForKey("calories")! as! Double)) kcal"
-        } catch {
-            fatalError("error appear when fetching")
+        let context = DataController().managedObjectContext
+        let getRequest = NSFetchRequest(entityName: "Record")
+
+        context.performBlock{
+            do {
+                let data = try context.executeFetchRequest(getRequest)
+                self.distanceLabel.text = "\(round(data.last!.valueForKey("distance")! as! Double)) m"
+                self.distanceLabel.text = "hello"
+                self.averageSpeedLabel.text = "\(round(data.last!.valueForKey("averageSpeed")! as! Double)) km / h"
+                self.caloriesLabel.text = "\(round(data.last!.valueForKey("calories")! as! Double)) kcal"
+            } catch let error {
+                fatalError("Fetching Statistic Error: \(error)")
+            }
         }
     }
     

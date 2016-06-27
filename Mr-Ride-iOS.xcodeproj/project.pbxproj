@@ -163,6 +163,7 @@
 		33AAF0681CF2A4B500F14E31 /* Mr-Ride-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				33AFD8D41D20D67E009B6CD6 /* Statistics */,
 				33B7EBD81D0FA83300D39072 /* Protocols */,
 				33F89B011D0E581900993678 /* Map */,
 				33E0E3461D090E0400FCC526 /* History */,
@@ -178,7 +179,6 @@
 				33AAF0751CF2A4B600F14E31 /* LaunchScreen.storyboard */,
 				33AAF0781CF2A4B600F14E31 /* Info.plist */,
 				3374712A1CFECBEE00E0C5D0 /* DataController.swift */,
-				33847AC81D0017D8009B2AB4 /* StatisticViewController.swift */,
 				33847ACA1D00234A009B2AB4 /* MainNavigationController.swift */,
 				333B768D1D0163BE0026BC1B /* LoginViewController.swift */,
 			);
@@ -202,6 +202,14 @@
 				332278AE1CF4242400C793C7 /* NewRecordViewController.swift */,
 			);
 			name = NewRecords;
+			sourceTree = "<group>";
+		};
+		33AFD8D41D20D67E009B6CD6 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				33847AC81D0017D8009B2AB4 /* StatisticViewController.swift */,
+			);
+			name = Statistics;
 			sourceTree = "<group>";
 		};
 		33B7EBD81D0FA83300D39072 /* Protocols */ = {
