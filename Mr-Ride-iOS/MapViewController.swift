@@ -22,7 +22,7 @@ class MapViewController: UIViewController, UIPickerViewDataSource {
     
     var pickerView = UIPickerView()
     var pickerViewDataSource = ["Toilet", "YouBike"]
-
+    
     
     // Map View Property
     @IBOutlet weak var mapView: GMSMapView!
@@ -46,16 +46,21 @@ class MapViewController: UIViewController, UIPickerViewDataSource {
 extension MapViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
+        setupMap()
         setupPickerView()
         setupSideMenu()
         getToilets()
-        getBikes()
+        setupToiletMarker()
     }
 }
 
 // MARK : - Setup
 extension MapViewController {
+    func setupMap(){
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
     func setupPickerView() {
         self.pickerView.dataSource = self
         self.pickerView.delegate = self
@@ -91,10 +96,12 @@ extension MapViewController {
     }
     
     func setupToiletMarker() {
+        mapView.clear()
+        
         for toilet in toilets {
             let position = toilet.coordinate
             let marker = GMSMarker(position: position)
-            marker.icon = UIImage(named: "icon-toilet")
+            marker.iconView = setupMarkerBackground("icon-toilet")
             marker.title = "\(toilet.name)"
             marker.map = mapView
         }
@@ -112,15 +119,37 @@ extension MapViewController {
     }
     
     func setupBikeMarker() {
+        mapView.clear()
+        
         for bike in bikes {
             let position = bike.coordinate
             let marker = GMSMarker(position: position)
-            marker.icon = UIImage(named: "icon-station")
+            marker.iconView = setupMarkerBackground("icon-station")
             marker.title = "\(bike.name)"
             marker.map = mapView
             print(bike.name)
         }
     }
+    
+    func setupMarkerBackground(icon: String) -> UIView {
+        
+        let iconImage = UIImage(named: icon)
+        let tintedImage = iconImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        let iconImageView = UIImageView(image: tintedImage!)
+        iconImageView.tintColor = .MRDarkSlateBlueColor()
+        
+        let markerBackground = UIView()
+        markerBackground.backgroundColor = .whiteColor()
+        markerBackground.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
+        markerBackground.layer.cornerRadius = markerBackground.frame.width / 2
+        markerBackground.clipsToBounds = true
+        
+        markerBackground.addSubview(iconImageView)
+        iconImageView.center = markerBackground.center
+        
+        return markerBackground
+    }
+    
 }
 
 
@@ -144,11 +173,10 @@ extension MapViewController: UIPickerViewDelegate {
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch row {
         case 0:
-            // toilets
-            print("todo: 0")
+            setupToiletMarker()
         case 1:
-            // youbikes
-            print("todo: 1")
+            getBikes()
+            setupBikeMarker()
         default: break
         }
     }
