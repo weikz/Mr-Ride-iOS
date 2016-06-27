@@ -44,20 +44,26 @@ extension HistoryViewController {
         super.viewDidLoad()
         setupTableView()
         setupSideMenu()
+        setupBackground()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-        clearData()
-        prepareTableViewData()
-        setupChart()
-    }
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(true)
+//        clearData()
+//        prepareTableViewData()
+//        setupChart()
+//    }
 }
 
 // MARK: - Setup
 
 extension HistoryViewController {
-    func setupNavigationBar() {
+    func setupBackground() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.MRLightblueColor().CGColor, UIColor.pineGreen50Color().CGColor]
+        gradientLayer.locations = [0.5, 1]
+        gradientLayer.frame = view.frame
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 1)
     }
     
     func setupSideMenu() {
