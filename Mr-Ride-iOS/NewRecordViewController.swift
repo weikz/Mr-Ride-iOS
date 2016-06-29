@@ -148,7 +148,7 @@ extension NewRecordViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
+        print("didUpdateLocations from newRecord")
         // Be careful!!!!
         // check timestamp
         // call 500 times instead of 1000? hint: NSTimer

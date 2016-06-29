@@ -73,6 +73,8 @@ extension MapViewController {
         pickerView.delegate = self
         infoView.hidden = true
         pickerViewStatus = .Toilets
+        locationManager.startUpdatingLocation()
+
     }
     
     func setupPickerView() {
@@ -254,10 +256,9 @@ extension MapViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
+
+        if let location = locations.first {
         mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
         }
-        
-        //locationManager.stopUpdatingLocation()
     }
 }
