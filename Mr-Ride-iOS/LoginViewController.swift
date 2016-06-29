@@ -17,8 +17,8 @@ class LoginViewController: UIViewController {
     @IBAction func loginButton(sender: AnyObject) {
         
         
-        defaults.setObject(self.heightTextField.text, forKey: "userHeight")
-        defaults.setObject(self.weightTextField.text, forKey: "userWeight")
+        defaults.setValue(self.heightTextField.text, forKey: "userHeight")
+        defaults.setValue(self.weightTextField.text, forKey: "userWeight")
         defaults.synchronize()
         
         if (FBSDKAccessToken.currentAccessToken() != nil) {

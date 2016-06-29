@@ -48,31 +48,16 @@ class NewRecordViewController: UIViewController {
             startTracking = true
         } else {
             timer.invalidate()
-            
         }
     }
     
     @IBOutlet weak var googleMapView: GMSMapView!
-    
     @IBAction func finishButton(sender: UIButton) {
         getPathArray()
         getAverageSpeed()
         saveDataToCoreData()
         performSegueWithIdentifier("toStatisticPage", sender: nil)
-        
-
     }
-    
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    
 }
 
 // MARK: - View Life Cycle
@@ -80,7 +65,6 @@ class NewRecordViewController: UIViewController {
 extension NewRecordViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = UIColor.MRLightblueColor()
         addGradient()
         
         locationManager.delegate = self
@@ -95,7 +79,6 @@ extension NewRecordViewController {
             integerWeight = Double(userWeightForCaculateCalories)!
         }
     }
-    
 }
 
 // MARK: - Setup
@@ -106,9 +89,7 @@ extension NewRecordViewController {
         layer.frame = self.view.bounds
         layer.colors = [UIColor.blackColor().colorWithAlphaComponent(0.6).CGColor, UIColor.blackColor().colorWithAlphaComponent(0.4).CGColor]
         view.layer.insertSublayer(layer, atIndex: 0)
-        //clearcolor
     }
-    
 }
 
 // MARK: - Setup Timer
@@ -136,6 +117,7 @@ extension NewRecordViewController {
 
 
 // MARK: - CLLocationManagerDelegate
+
 extension NewRecordViewController: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedWhenInUse {
@@ -148,32 +130,23 @@ extension NewRecordViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("didUpdateLocations from newRecord")
-        // Be careful!!!!
-        // check timestamp
-        // call 500 times instead of 1000? hint: NSTimer
-        
-        // prevent from too many polylines
+
         googleMapView.clear()
-        
-        
-        // set distance and speed
+
         if startLocation == nil {
             startLocation = locations.first
         } else {
             if let lastLocation = locations.last {
+
                 distance = startLocation.distanceFromLocation(lastLocation)
                 
                 distanceLabel.text = String(round(100.0 * distance) / 100.0) + " m"
-                // let lastDistance = lastLocation.distanceFromLocation(lastLocation)
-                // traveledDistance += lastDistance
-                
+
                 averageSpeedLabel.text = String(round(100.0 * lastLocation.speed) / 100.0) + " km/h"
                 
                 calories = distance * integerHeight * integerWeight * 0.05
                 
                 caloriesLabel.text = String(round(100.0 * calories) / 100.0) + " cal"
-                
             }
         }
         
@@ -191,14 +164,11 @@ extension NewRecordViewController: CLLocationManagerDelegate {
             
             let polyline = GMSPolyline(path: path)
             polyline.strokeColor = UIColor.blueColor()
-            polyline.strokeWidth = 10.0
+            polyline.strokeWidth = 6.0
             polyline.geodesic = true
             polyline.map = googleMapView
         }
-        
-        
     }
-    
 }
 
 // MARK: - Save in Core Data
@@ -212,8 +182,6 @@ extension NewRecordViewController {
             pathArrayFor.append(coordinate)
         }
         let _polylineCoordinatePackage = NSKeyedArchiver.archivedDataWithRootObject(pathArrayFor)
-        
-        // set vs array
         
         return _polylineCoordinatePackage
     }
@@ -243,7 +211,6 @@ extension NewRecordViewController {
                 fatalError("Failure to save context.")
             }
         }
-        
     }
 }
 
