@@ -14,11 +14,19 @@ class MapViewController: UIViewController, UIPickerViewDataSource {
     var bikes: [BikeModel] = []
 
     // Picker View Property
-    enum PickerViewStatus { case Toilets, Youbike }
+    enum PickerViewStatus { case Toilets, Youbikes }
     var pickerViewStatus: PickerViewStatus = .Toilets
     @IBOutlet weak var pickerViewBackground: UIView!
     @IBOutlet weak var pickerViewButton: UIButton!
     @IBOutlet weak var sideMenuButton: UIBarButtonItem!
+    
+    // Info View Property
+    
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var districtLabel: UILabel!
+    @IBOutlet weak var stationLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var estimatedTimeLabel: UILabel!
     
     var pickerView = UIPickerView()
     var pickerViewDataSource = ["Toilet", "YouBike"]
@@ -30,10 +38,12 @@ class MapViewController: UIViewController, UIPickerViewDataSource {
     var locationManager = CLLocationManager()
 
     @IBAction func pickerViewButton(sender: UIButton) {
+        pickerViewStatus = .Toilets
         pickerViewBackground.hidden = false
     }
     
     @IBAction func pickerViewDoneButton(sender: AnyObject) {
+        pickerViewStatus = .Youbikes
         pickerViewBackground.hidden = true
     }
     
@@ -59,6 +69,10 @@ extension MapViewController {
     func setupMap(){
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        mapView.delegate = self
+        pickerView.delegate = self
+        infoView.hidden = true
+        pickerViewStatus = .Toilets
     }
     
     func setupPickerView() {
@@ -77,8 +91,6 @@ extension MapViewController {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
-
-    
 }
 
 // MARK: - Action
@@ -97,13 +109,16 @@ extension MapViewController {
     
     func setupToiletMarker() {
         mapView.clear()
-        
+        var toiletIndex = 0
         for toilet in toilets {
             let position = toilet.coordinate
             let marker = GMSMarker(position: position)
             marker.iconView = setupMarkerBackground("icon-toilet")
             marker.title = "\(toilet.name)"
             marker.map = mapView
+            
+            marker.userData = toiletIndex
+            toiletIndex += 1
         }
     }
     
@@ -120,14 +135,16 @@ extension MapViewController {
     
     func setupBikeMarker() {
         mapView.clear()
-        
+        var bikeIndex = 0
         for bike in bikes {
             let position = bike.coordinate
             let marker = GMSMarker(position: position)
             marker.iconView = setupMarkerBackground("icon-station")
             marker.title = "\(bike.name)"
             marker.map = mapView
-            print(bike.name)
+            
+            marker.userData = bikeIndex
+            bikeIndex += 1
         }
     }
     
@@ -152,7 +169,48 @@ extension MapViewController {
     
 }
 
+// MARK: - Map View Delegate
+extension MapViewController: GMSMapViewDelegate {
+    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
+        infoView.hidden = false
+        pickerViewBackground.hidden = true
+        
+        switch pickerViewStatus {
+            
+        case .Youbikes:
+            guard let youbike = marker.userData as? Int else { return false }
+            districtLabel.hidden = false
+            districtLabel.text = bikes[youbike].district
+            districtLabel.layer.borderColor = UIColor.whiteColor().CGColor
+            districtLabel.layer.borderWidth = 0.7
+            locationLabel.hidden = false
+            
+            stationLabel.text = bikes[youbike].name
+            locationLabel.text = bikes[youbike].location
+            estimatedTimeLabel.text = "5 mins"
+            marker.userData = youbike
+            
+            
+            
+        case .Toilets:
+            guard let toilet = marker.userData as? Int else { return false }
+            districtLabel.hidden = true
+            stationLabel.text = toilets[toilet].name
+            locationLabel.hidden = true
+            estimatedTimeLabel.text = "5 mins"
+        }
 
+        return false
+        
+    }
+    
+    func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+        infoView.hidden = true
+        pickerViewBackground.hidden = true
+    }
+
+
+}
 
 
 // MARK: - UIPickerViewDelegate
@@ -199,5 +257,7 @@ extension MapViewController: CLLocationManagerDelegate {
         if let location = locations.last {
         mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
         }
+        
+        //locationManager.stopUpdatingLocation()
     }
 }

@@ -81,7 +81,8 @@ extension YoubikeModelHelper {
             identifier: identifier,
             coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
             name: name,
-            location: location
+            location: location,
+            district: district
             
         )
         

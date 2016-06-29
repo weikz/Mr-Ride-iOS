@@ -151,7 +151,6 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
         for header in headers {
             statisticViewController.runDataStruct = runDataSortedByTime[header]![indexPath.row - 1]
-            statisticViewController.previousPage = .HistoryViewController
         }
         navigationController?.pushViewController(statisticViewController, animated: true)
     }

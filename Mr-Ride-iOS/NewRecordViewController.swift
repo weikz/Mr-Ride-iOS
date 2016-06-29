@@ -239,7 +239,7 @@ extension NewRecordViewController {
         context.performBlock{
             do {
                 try self.context.save()
-            } catch {
+            } catch{
                 fatalError("Failure to save context.")
             }
         }
