@@ -12,12 +12,14 @@ import GoogleMaps
 import FBSDKLoginKit
 import Fabric
 import Crashlytics
+import Amplitude_iOS
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let googleMapsApiKey = "AIzaSyCQ4LeDkN6pvixB4twjavWbTFMJurKl6bY"
+    private let AmplitudeApiKey = "4769afeb98218051f04f8df08696672d"
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -33,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(googleMapsApiKey)
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         Fabric.with([Crashlytics.self])
+        
+        Amplitude.instance().initializeApiKey(AmplitudeApiKey)
 
         
 //        let logInViewController = LoginViewController() // from storyboard

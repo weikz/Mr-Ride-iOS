@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenu
+import Amplitude_iOS
 
 class HomeViewController: UIViewController {
     var conuter = 0
@@ -21,11 +22,16 @@ class HomeViewController: UIViewController {
         let newRecordViewController = self.storyboard?.instantiateViewControllerWithIdentifier("NewRecordViewController") as! NewRecordViewController
         let navigationControllerForRootView = UINavigationController(rootViewController: newRecordViewController)
         self.presentViewController(navigationControllerForRootView, animated: true, completion: nil)
+        Amplitude.instance().logEvent("select_ride_in_home")
+    }
+    
+    @IBAction func sideMenuButton(sender: UIBarButtonItem) {
+        Amplitude.instance().logEvent("select_menu_in_home")
     }
     
     @IBOutlet weak var sideMenuButton: UIBarButtonItem!
     
-}
+    }
 
 // MARK: - View Life Cycle
 extension HomeViewController {
@@ -35,7 +41,7 @@ extension HomeViewController {
         setupSideMenu()
         setupLetsRideButton()
         
-        //NSAttributedString Use To Count's string interpolation
+        Amplitude.instance().logEvent("view_in_home")
     }
     
     
@@ -59,7 +65,7 @@ extension HomeViewController {
         if self.revealViewController() != nil {
             sideMenuButton.target = self.revealViewController()
             sideMenuButton.action = "revealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
     

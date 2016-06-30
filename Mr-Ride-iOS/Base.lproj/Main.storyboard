@@ -340,6 +340,9 @@
                     <navigationItem key="navigationItem" id="PMw-eK-j0Q">
                         <barButtonItem key="leftBarButtonItem" image="icon-menu" id="2cH-ry-ivE">
                             <color key="tintColor" red="0.99278479814529419" green="0.99594038724899292" blue="0.99582940340042114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="sideMenuButton:" destination="BYZ-38-t0r" id="px6-9j-xYT"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
