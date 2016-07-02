@@ -47,12 +47,12 @@ extension HistoryViewController {
         setupBackground()
     }
     
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(true)
-//        clearData()
-//        prepareTableViewData()
-//        setupChart()
-//    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        clearData()
+        prepareTableViewData()
+        setupChart()
+    }
 }
 
 // MARK: - Setup
@@ -256,7 +256,7 @@ extension HistoryViewController {
         lineChartView.leftAxis.drawLabelsEnabled = false
         lineChartView.rightAxis.drawLabelsEnabled = false
         
-        //lineChartView.rightAxis.drawGridLinesEnabled = false
-        //lineChartView.leftAxis.gridColor = UIColor.whiteColor()
+        lineChartView.rightAxis.drawGridLinesEnabled = false
+        lineChartView.leftAxis.gridColor = UIColor.whiteColor()
     }
 }
