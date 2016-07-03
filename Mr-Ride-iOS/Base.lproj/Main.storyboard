@@ -571,9 +571,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image-history-background" translatesAutoresizingMaskIntoConstraints="NO" id="dSg-zQ-6We">
-                                <rect key="frame" x="0.0" y="346" width="375" height="321"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mr. Ride" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ra-cO-Ve5">
                                 <rect key="frame" x="70" y="90" width="244" height="116"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
@@ -622,6 +619,9 @@
                                     <action selector="loginButton:" destination="zb4-rN-L3T" eventType="touchUpInside" id="0ID-K2-hoW"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image-history-background" translatesAutoresizingMaskIntoConstraints="NO" id="dSg-zQ-6We">
+                                <rect key="frame" x="0.0" y="346" width="375" height="321"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.38823530077934265" green="0.84313726425170898" blue="0.96470588445663452" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     </view>

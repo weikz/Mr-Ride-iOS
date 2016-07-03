@@ -96,6 +96,6 @@ extension LoginViewController: ValidationDelegate {
     }
     
     func validationFailed(errors: [UITextField : ValidationError]) {
-        print("error")
+        print(errors)
     }
 }
