@@ -620,7 +620,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButton:" destination="zb4-rN-L3T" eventType="touchUpInside" id="0ID-K2-hoW"/>
-                                    <segue destination="mTZ-So-Jkm" kind="show" identifier="toNewRecordPage" id="4d8-iO-sIc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -631,6 +630,7 @@
                         <outlet property="heightTextField" destination="Vt0-hD-9zy" id="JMz-QE-ecf"/>
                         <outlet property="loginButton" destination="4bP-ZU-84I" id="96B-2w-3YH"/>
                         <outlet property="weightTextField" destination="QdQ-zD-jwa" id="TTd-vb-Tk0"/>
+                        <segue destination="mTZ-So-Jkm" kind="show" identifier="Show Home" id="D55-Tz-8ke"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0E3-5i-csc" userLabel="First Responder" sceneMemberID="firstResponder"/>
